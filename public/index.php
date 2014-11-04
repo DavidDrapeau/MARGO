@@ -1,6 +1,6 @@
 <?php
 
-require_once("../conf/fonctions.inc.php");
+require_once("../conf/fonctions.php");
 
 // Réception des paramètres
 if (isset($_GET['controleur'])) {
