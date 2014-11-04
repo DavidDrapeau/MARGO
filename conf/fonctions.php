@@ -8,21 +8,21 @@ function __autoload($classe) {
     $suffixe = substr($classe, 0, 2);
     switch ($suffixe) {
         case "C_" :
-            $chemin = "../controleurs/";
+            $chemin = "../Controleur/";
             break;
         case "M_" :
             $sousSuffixe = substr($classe, 2, 3);
             switch ($sousSuffixe) {
                 case "Dao" :
-                    $chemin = "../modeles/dao/";
+                    $chemin = "../Modele/dao/";
                     break;
                 default :
-                    $chemin = "../modeles/metier/";
+                    $chemin = "../Modele/metier/";
                     break;                   
             }
             break;
         case "V_" :
-            $chemin = "../vues/";
+            $chemin = "../Vue/";
             break;
         default :
             $chemin = "../includes/classes/";
