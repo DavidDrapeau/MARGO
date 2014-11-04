@@ -182,10 +182,12 @@ height : 885px ;
 nav .nav-bar ul
 {
 	list-style : none ;
+        float : left ;
 }
 nav .nav-bar li
 {
 	line-height : 40px ;
+
 }
 nav .nav-bar li a
 {
