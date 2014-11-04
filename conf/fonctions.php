@@ -28,7 +28,7 @@ function __autoload($classe) {
             $chemin = "../includes/classes/";
             break;
     }
-    $chemin = $chemin . $classe . '.class.php';
+    $chemin = $chemin . $classe . '.php';
     if (file_exists($chemin)) {
         require_once($chemin);
     } else {
