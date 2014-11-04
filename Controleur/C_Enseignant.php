@@ -1,11 +1,11 @@
 <?php
 
-class C_Etudiant implements C_Personne{
+class C_Enseignant implements C_Personne{
     
     function __construct() {
         
     }
-
+   
 }
 
 ?>
