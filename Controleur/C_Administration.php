@@ -1,6 +1,6 @@
 <?php
 
-class C_Administration implements C_PersonneInterface{
+class C_Administration implements C_Personne{
     
     function __construct() {
         
