@@ -8,7 +8,7 @@ and open the template in the editor.
 <html>
 	<head>
 		<title> MARGO | Authentification </title>
-		<link rel="stylesheet" href="Webroot/css/style.css" />
+		<link rel="stylesheet" href="../Webroot/css/style.css" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/bootstrap-theme.css" />
 
