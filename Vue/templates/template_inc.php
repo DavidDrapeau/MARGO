@@ -6,7 +6,13 @@ and open the template in the editor.
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        
+       
+		<meta charset='UTF-8' />
+		<link rel="stylesheet" href="../Webroot/css/style.css" />
+		<link rel="stylesheet" href="../Webroot/css/bootstrap/bootstrap-theme.css" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<title>Margo | Espace enseignant</title>
+	
         <title><?php echo $this->lire('titre');?></title>
     </head>
     <body>
