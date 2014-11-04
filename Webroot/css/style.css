@@ -1,6 +1,6 @@
 *
 {
-	font-family : 'Roboto' ;
+	font-family : 'Roboto', Verdana ;
 	
 }
 body
@@ -14,10 +14,10 @@ background-color :#bdbdbd
 	margin-top :14% ;
 	margin-left : 37% ;
 	text-align : center ;
-	height : 400px ;
+	height : 440px ;
 	background-color : #3f51b5 ;
 	font-family : 'Roboto', Arial ;
-	width : 400px ;
+	width : 440px ;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
@@ -67,7 +67,7 @@ label
 {
 color : #fafafa ;
 	padding-top : 15px ;
-	letter-spacing : 5.5px ;
+	letter-spacing : px ;
 }
 button,
 input,
