@@ -176,7 +176,7 @@ nav
 }
 nav .nav-bar
 {
-height : 885px ;
+height : 629px ;
 }
 
 nav .nav-bar ul
@@ -223,4 +223,14 @@ section .formulaire
  color : #FCFAE1 ;
  padding :  15px ;
 }
-
+footer 
+{
+	display : inline-block ;
+	 background-color :#002F2F ; 
+	 margin : 0 ;
+	 width : 100% ;
+	 height : 100px ;
+	 color : #B4AF91 ;
+         padding-top : 4%;
+         padding-left: 3%;
+}
