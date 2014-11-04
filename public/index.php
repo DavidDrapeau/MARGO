@@ -11,7 +11,7 @@ if (isset($_GET['controleur'])) {
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'defaut';
+    $action = 'accueil';
 }
 
 // Construction du nom de la classe contrôleur
