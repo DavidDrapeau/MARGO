@@ -12,7 +12,7 @@ class C_connexion
         M_DaoConnexion::deconnecter($pdo);
 
 
-        $titre = "La fleur and co";
+        $titre = "Se connecter";
         $entete = RACINE . "/vue/vueEntete.inc.php";
         $gauche = RACINE . "/vue/vueGauche.inc.php";
         $centre = RACINE . "/vue/vueCentreSeConnecter.inc.php";
