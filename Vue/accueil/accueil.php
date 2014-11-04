@@ -1,6 +1,6 @@
 <?php
 
-echo "coucou";
+echo "Accueil à faire";
 
 ?>
 
