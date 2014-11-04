@@ -4,30 +4,14 @@ class C_connexion
 {
     
     function seConnecter() {
-
-        $pdo = M_DaoConnexion::connecter();
-        if ($pdo) {
-            $listeCateg = M_DaoCategorie::getAll($pdo);
-        }
-        M_DaoConnexion::deconnecter($pdo);
-
-
-        $titre = "La fleur and co";
-        $entete = RACINE . "/vue/vueEntete.inc.php";
-        $gauche = RACINE . "/vue/vueGauche.inc.php";
-        $centre = RACINE . "/vue/vueCentreSeConnecter.inc.php";
-        $pied = RACINE . "/vue/vuePied.inc.php";
-
-
-        $this->vue = new V_Vue(RACINE . '/vue/template.inc.php');
-        $this->vue->ajouter('listeCateg', $listeCateg);
-
-        $this->vue->ajouter('titre', $titre);
-        $this->vue->ajouter('entete', $entete);
-        $this->vue->ajouter('gauche', $gauche);
-        $this->vue->ajouter('centre', $centre);
-        $this->vue->ajouter('pied', $pied);
-        $this->vue->afficher();
+    $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
+        $uneVue->ajouter('titre', 'Se connecter');
+        $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $uneVue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+        $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
+            
+        $uneVue->afficher();
     }
 
     function authentifier() {
