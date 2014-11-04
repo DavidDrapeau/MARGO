@@ -10,10 +10,10 @@
 
             if ($loginAuthentification == null) {
                 ?>
-                <li><a href="<?php echo "../public/index.php?controleur=connexion&action=seConnecter\""; ?>" >Connexion </a></li>
+                <li><a href="<?php echo RACINE . "/public/index.php?controleur=connexion&action=seConnecter\""; ?>" >Connexion </a></li>
             <?php } else {
                 ?>
-                <li><a href="<?php echo "../public/index.php?controleur=connexion&action=seDeconnecter\""; ?>" >Deconnexion  </a></li>
+                <li><a href="<?php echo RACINE . "/public/index.php?controleur=connexion&action=seDeconnecter\""; ?>" >Deconnexion  </a></li>
                 <?php
             }
             ?>
