@@ -4,7 +4,7 @@ class C_accueil{
     
     function accueil() {
         
-        $uneVue = new V_Vue("../Vue/template.inc.php" );
+        $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
         $uneVue->ajouter('titre', 'Authentification');
         $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $uneVue->ajouter('gauche',"/Vue/vueGauche.inc.php");

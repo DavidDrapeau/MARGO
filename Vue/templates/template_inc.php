@@ -6,7 +6,7 @@ and open the template in the editor.
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="<?php echo RACINE; ?>/vue/css/styleLargeurFixe.css" />
+        
         <title><?php echo $this->lire('titre');?></title>
     </head>
     <body>
