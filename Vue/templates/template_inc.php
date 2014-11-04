@@ -1,8 +1,30 @@
-<?php
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html >
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="<?php echo RACINE; ?>/vue/css/styleLargeurFixe.css" />
+        <title><?php echo $this->lire('titre');?></title>
+    </head>
+    <body>
+	<div id="conteneur">
+            <div id="header">
+               <?php include($this->lire('entete')); ?>
+            </div>
+            <div id="gauche">
+               <?php include($this->lire('gauche')); ?>
+            </div>
+            <div id="centre">
+                <?php include($this->lire('centre'));?>
+            </div>
+            <div id="pied">
+                <?php include($this->lire('pied'));?>
+            </div>
+        </div>
+    </body>
+</html>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
