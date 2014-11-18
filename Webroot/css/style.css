@@ -130,11 +130,12 @@ margin-top : 40px ;
 header 
 {
 	display : inline-block ;
-	 background-color :#002F2F ; 
+	 background-color :  #004d40 ; 
 	 margin : 0 ;
 	 width : 100% ;
 	 height : 100px ;
-	 color : #B4AF91 ;
+	 color : #FFF ;
+         font-family : Helvetica, 'Roboto' ;
 	
 }
 header .logo
@@ -144,10 +145,12 @@ header .logo
 	padding-right : 5%;
 	padding-top : 2%;
 	padding-left : 1% ;
+        font-family : Helvetica, 'Roboto' ;
 }
 header .title-page
 {
 	padding-top : 2% ;
+        font-family : Helvetica, 'Roboto' ;
 }
 header .title-page ul
 {
@@ -228,7 +231,7 @@ section .formulaire
 footer 
 {
 	display : inline-block ;
-	 background-color :#002F2F ; 
+	 background-color : #004d40 ; 
 	 margin : 0 ;
 	 width : 100% ;
 	 height : 100px ;
