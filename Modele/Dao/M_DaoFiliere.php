@@ -1,6 +1,6 @@
 <?php
 
-class DaoFiliere extends M_DaoGenerique
+class M_DaoFiliere extends M_DaoGenerique
 {
     
        function __construct() {
@@ -9,7 +9,7 @@ class DaoFiliere extends M_DaoGenerique
     }
 
     public function enregistrementVersObjet($enreg) {
-          $retour = new M_Classe($enreg['NUMFILIERE'], $enreg['LIBELLEFILIERE']);
+          $retour = new M_Filiere($enreg['NUMFILIERE'], $enreg['LIBELLEFILIERE']);
         return $retour;
     }
 
@@ -34,11 +34,11 @@ class DaoFiliere extends M_DaoGenerique
       
         $retour = null;
         // Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable P ";
+        $sql = "SELECT * FROM $this->nomTable F ";
      
         try {
             // préparer la requête PDO
-          
+            var_dump($sql) ;
             $queryPrepare = $this->pdo->prepare($sql);
             // exécuter la requête PDO
             if ($queryPrepare->execute()) {
