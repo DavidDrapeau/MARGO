@@ -12,8 +12,9 @@ class C_Enseignement
     {
                $this->vue = new V_Vue("../Vue/templates/template_inc.php");
             $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;
-        
-            $this->vue->afficher() ;
+
+        $this->vue->afficher();
+            
     }
     
     function afficher()
