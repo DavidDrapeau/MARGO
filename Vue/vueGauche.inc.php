@@ -6,7 +6,7 @@
                                         <h3>Enseignement</h3>
                                         <hr>
 					<li><span class="glyphicon glyphicon-bookmark"> </span> <a href="#">Liste Enseignements</a></li>                                     
-                                        <li><span class="glyphicon glyphicon-bookmark"> </span> <a href="#">Ajouter une matière</a></li>
+                                        <li><span class="glyphicon glyphicon-bookmark"> </span> <a href="?controleur=Enseignement&action=ajouter">Ajouter une matière</a></li>
                                         
                                         <h3>Filières</h3>
                                         <hr>

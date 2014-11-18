@@ -9,11 +9,19 @@ class C_Enseignement
 {
     
     function ajouter()
-    {
-               $this->vue = new V_Vue("../Vue/templates/template_inc.php");
-            $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;
-
-        $this->vue->afficher();
+    { 
+        $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
+        $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $uneVue->vue->ajouter('titreVue','MARGO | Ajout matière') ;
+            
+   
+            $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
+            $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+            $uneVue->ajouter('centre',"../Vue/includes/centreAjoutEnseignement.php");
+            $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
+            
+        $uneVue->afficher();
+      
             
     }
     
