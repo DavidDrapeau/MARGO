@@ -49,8 +49,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $mobile = $_POST["telP"];
         $etudes = $_POST["etudes"];
         $formation = $_POST["formation"];
-        $entreprises = $_POST["entreprise1"];
-        $login = $_POST["login"];
+       $login = $_POST["login"];
         $mdp = sha1($_POST["mdp"]);
         
         //On vérifie les données
