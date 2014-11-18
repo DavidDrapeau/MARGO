@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-class C_Enseignement 
+class C_classe 
 {
     
     function ajouter()
@@ -52,18 +52,28 @@ class C_Enseignement
         $daoClasse = new M_DaoClasse();
         $daoClasse->connecter();
         $daoClasse->getPdo() ;
-        
-        var_dump($_POST) ;
+
         $numClass = $_POST['numClass'] ;
         $nameClasse = $_POST['nameClasse'] ;
         $filiere = intval($_POST['filiere']) ;
         
+        $idSpec = null ;
+        
+        
+        
        
 
         
-        $classe = new M_Classe($numClass, $filiere, $nameClasse) ;
+        $classe = new M_Classe($numClass, $idSpec, $filiere, $nameClasse) ;
         
-        var_dump($daoClasse->insert($classe)) ;
+        if($daoClasse->insert($classe)=='true')
+        {
+            $message='Classe bien ajouter' ;
+        } else
+        {
+            $message ="Une erreure s'est produite" ;
+        }
+        $this->vue->ajouter('message', $message) ;
         $this->vue->afficher() ;
     }
 }

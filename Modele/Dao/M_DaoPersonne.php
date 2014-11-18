@@ -48,9 +48,17 @@ class M_DaoPersonne extends M_DaoGenerique {
         } else {
             $idRole = 0; // "Autre" (simple visiteur)
         }
+        if (!is_null($objetMetier->getSpecialite())) {
+            $idSpecialite = $objetMetier->getSpecialite();
+        } else {
+            $idSpecialite = 0; // "Autre" (simple visiteur)
+        }
+        
+        
         $retour = array(
             ':idRole' => $idRole,
             ':civilite' => $objetMetier->getCivilite(),
+            ':idSpecialite'=> $idSpecialite,
             ':nom' => $objetMetier->getNom(),
             ':prenom' => $objetMetier->getPrenom(),
             ':numTel' => $objetMetier->getNumTel(),
@@ -177,12 +185,11 @@ class M_DaoPersonne extends M_DaoGenerique {
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "INSERT INTO $this->nomTable (";
-            $sql .= "CIVILITE,IDROLE,NOM,PRENOM,NUM_TEL,ADRESSE_MAIL,NUM_TEL_MOBILE,";
+            $sql .= "CIVILITE,IDSPECIALITE, IDROLE,NOM,PRENOM,NUM_TEL,ADRESSE_MAIL,NUM_TEL_MOBILE,";
             $sql .= "ETUDES,FORMATION,LOGINUTILISATEUR,MDPUTILISATEUR)  ";
             $sql .= "VALUES (";
-            $sql .= ":civilite, :idRole, :nom, :prenom, :numTel, :mail, :mobile, "; 
-
- $sql .= ":etudes, :formation, :login, :mdp)";
+            $sql .= ":civilite, :idSpecialite, :idRole, :nom, :prenom, :numTel, :mail, :mobile, "; 
+            $sql .= ":etudes, :formation, :login, :mdp)";
 //            var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -229,6 +236,31 @@ class M_DaoPersonne extends M_DaoGenerique {
         }
         return $retour;
     }
+    
+     /**
+     * 
+     * @param type $row = champ à vérifier
+     * @param type $objet = données récupérés à valider pour savoir si doublon
+     * @return int 
+     */
+    function verif($row, $objet) {
+        $retour = null;
+        $ok = 1;
+        try {
+            $sql = 'SELECT ' . $row . ' FROM ' . $this->nomTable . ' WHERE ' . $row . '="' . $objet . '"';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $retour = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!empty($retour)) {
+                $ok = 0;
+            }
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+        return $ok;
+    }
+    
+    
 
 }
 
