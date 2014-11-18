@@ -13,8 +13,7 @@ class C_Classe
         $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
         $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
         $uneVue->vue->ajouter('titreVue','MARGO | Ajout classe') ;
-            
-   
+             
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
             $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
             $uneVue->ajouter('centre',"../Vue/includes/centreAjoutClasse.php");
