@@ -29,7 +29,6 @@ class C_Enseignement
     {
         $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
         $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
-        $uneVue->vue->ajouter('titreVue','MARGO | Afficher enseignement') ;
    
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
             $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
