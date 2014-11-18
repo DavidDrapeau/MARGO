@@ -22,7 +22,7 @@ class M_DaoClasse extends M_DaoGenerique
             ':numFiliere' => $objetMetier->getNumFiliere(),
             ':nomClass' => $objetMetier->getNomClasse()
         );
-              var_dump($retour) ;
+           
         return $retour;
     }
 
