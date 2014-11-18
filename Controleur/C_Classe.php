@@ -58,12 +58,7 @@ class C_classe
         $filiere = intval($_POST['filiere']) ;
         
         $idSpec = null ;
-        
-        
-        
-       
-
-        
+                       
         $classe = new M_Classe($numClass, $idSpec, $filiere, $nameClasse) ;
         
         if($daoClasse->insert($classe)=='true')
@@ -74,6 +69,50 @@ class C_classe
             $message ="Une erreure s'est produite" ;
         }
         $this->vue->ajouter('message', $message) ;
+        $this->vue->afficher() ;
+    }
+    
+    function show()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/includes/centreAfficherClasses.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+        $daoClasse = new M_DaoClasse();
+        $daoClasse->connecter();
+        $daoClasse->getPdo() ;
+        
+        $classes = $daoClasse->getAll();
+      
+        
+        $this->vue->ajouter('listeClasses', $classes) ;
+        
+        
+        
+        $this->vue->afficher() ;
+    }
+    
+    
+    function showByID()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/includes/centreAfficherDetail.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+       var_dump($_GET) ;
+        
+        $id = GET['idClasse'] ;
+        
+        
+        
         $this->vue->afficher() ;
     }
 }
