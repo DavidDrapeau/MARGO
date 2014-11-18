@@ -29,7 +29,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $this->vue->ajouter('loginAuthentification',MaSession::get('login'));
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre', "../Vue/includes/adminPersonnes/centreCreerPersonne.php");
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreCreerPersonne.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
                
         $this->vue->afficher();
@@ -98,8 +98,12 @@ class C_AdminPersonnes extends C_ControleurGenerique {
      * @param id de la personne
      */
     function afficherPersonne() {
-        $this->vue = new V_Vue("../Vue/templates/template.inc.php");
-        //$this->vue->ecrireDonnee('centre',"../vues/includes/accueil/centreAccueil.inc.php");
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+       
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+       
         // les données
         $this->vue->ajouter('titreVue', "GestStage : Afficher une personne");
         $daoPers = new M_DaoPersonne();
@@ -108,7 +112,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $personne = $daoPers->getOneById($idPersonne);
         $daoPers->deconnecter();
         $this->vue->ajouter('utilisateur', $personne);
-        $this->vue->ajouter('centre', "../Vue/includes/adminPersonnes/centreAfficherInformationsUtilisateur.php");
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherInformationsUtilisateur.php");
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
