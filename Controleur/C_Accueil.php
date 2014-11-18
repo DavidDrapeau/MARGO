@@ -4,14 +4,14 @@ class C_accueil{
     
     function accueil() {
         
-        $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
-        $uneVue->ajouter('titre', 'Authentification');
-        $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $uneVue->ajouter('centre',"../Vue/accueil/accueil.php");
-        $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
-            
-        $uneVue->afficher();
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue->ajouter('titre', 'Authentification');
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/accueil/accueil.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher();
     }
 
 }
