@@ -1,3 +1,4 @@
+
 <?php
 
 /* 
@@ -12,16 +13,7 @@ class C_Enseignement
     { 
         $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
         $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
-        $uneVue->vue->ajouter('titreVue','MARGO | Ajout matière') ;
-        
-        $filiere = new M_DaoFiliere() ;
-       $filiere->connecter() ;
-        $filiere->getPdo() ;
-        
-        var_dump($filiere->getPdo()) ;
-        $filieres = $filiere->getAll() ;
-
-        var_dump($filieres) ;
+        $uneVue->vue->ajouter('titreVue','MARGO | Ajout enseigneùent') ;
    
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
             $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
@@ -35,6 +27,15 @@ class C_Enseignement
     
     function afficher()
     {
-        
+        $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
+        $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
+   
+            $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
+            $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+            $uneVue->ajouter('centre',"../Vue/includes/centreAjoutEnseignement.php");
+            $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
+            
+        $uneVue->afficher();
     }
 }
+

@@ -1,15 +1,15 @@
 <?php
 
-class M_DaoFiliere extends M_DaoGenerique
+class M_DaonsEnseignement extends M_DaoGenerique
 {
     
        function __construct() {
-        $this->nomTable = "FILIERE";
-        $this->nomClefPrimaire = "NUMFILIERE";
+        $this->nomTable = "ENSEIGNEMENT";
+        $this->nomClefPrimaire = "ID_ENSEIGNEMENT";
     }
 
     public function enregistrementVersObjet($enreg) {
-          $retour = new M_Filiere($enreg['NUMFILIERE'], $enreg['LIBELLEFILIERE']);
+          $retour = new M_Enseignement($enreg['ID_ENSEIGNEMENT'], $enreg['LIB_ENSEIGNEMENT']);
         return $retour;
     }
 
@@ -19,8 +19,8 @@ class M_DaoFiliere extends M_DaoGenerique
 
     public function objetVersEnregistrement($objetMetier) {
              $retour = array(
-            ':numFiliere' => $objetMetier->getNumFiliere(),
-            ':libFiliere' => $objetMetier->getLibFIliere(),
+            ':idEnseignement' => $objetMetier->getIdEnseignement(),
+            ':libEnseignement' => $objetMetier->getLibEnseignement(),
         );
         return $retour;
     }
@@ -34,10 +34,11 @@ class M_DaoFiliere extends M_DaoGenerique
       
         $retour = null;
         // Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable F ";
+        $sql = "SELECT * FROM $this->nomTable E ";
      
         try {
             // préparer la requête PDO
+            var_dump($sql) ;
             $queryPrepare = $this->pdo->prepare($sql);
             // exécuter la requête PDO
             if ($queryPrepare->execute()) {

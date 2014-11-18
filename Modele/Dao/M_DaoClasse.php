@@ -9,22 +9,58 @@ class M_DaoClasse extends M_DaoGenerique
     }
 
     public function enregistrementVersObjet($enreg) {
-          $retour = new M_Classe($enreg['NUMCLASSE'], $enreg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
+   
+          $retour = new M_Classe($enreg['NUMCLASSE'], $enrg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
+         
+        return $retour;
+    }
+      public function objetVersEnregistrement($objetMetier) {
+  
+              $retour = array(
+            ':numClass' => $objetMetier->getNumClass(),
+            ':idSpec'   =>$objetMetier->getIdSpec(),
+            ':numFiliere' => $objetMetier->getNumFiliere(),
+            ':nomClass' => $objetMetier->getNomClasse()
+        );
+           
         return $retour;
     }
 
     public function insert($objetMetier) {
+  
+        $retour = FALSE;
+        try {
+            // Requête textuelle paramétrée (paramètres nommés)
+            $sql = "INSERT INTO $this->nomTable (";
+            $sql .= " NUMCLASSE, IDSPECIALITE, NUMFILIERE, NOMCLASSE)";
+            $sql .= " VALUES (";
+            $sql .= ":numClass, :idSpec, :numFiliere, :nomClass)";
+          
+          
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+        
+            // préparer la  liste des paramètres, avec l'identifiant en dernier
+            $parametres = $this->objetVersEnregistrement($objetMetier);
+           
+    
+            // exécuter la requête avec les valeurs des paramètres dans un tableau
+            
+            $retour = $queryPrepare->execute($parametres);
+        
+         
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+    
+
+        return $retour;
         
     }
 
-    public function objetVersEnregistrement($objetMetier) {
-             $retour = array(
-            ':numClass' => $objetMetier->getNumClass(),
-            ':numFiliere' => $objetMetier->getNumFIliere(),
-            ':nomClass' => $objetMetier->getNomClasse()
-        );
-        return $retour;
-    }
+ 
+
+    
 
     public function update($idMetier, $objetMetier) {
         

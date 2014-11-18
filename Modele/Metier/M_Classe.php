@@ -8,28 +8,32 @@
 class M_Classe {
 
     private $numClass; 
-    private $idSpec;
+    private $idSpec ;
     private $numFiliere;
     private $nomClasse;
 
 
      function __construct($numClass, $idSpec, $numFiliere,$nomClasse) {
         $this->numClass = $numClass;
-        $this->idSpec = $idSpec;
+        $this->idSpec = $idSpec ;
         $this->numFiliere = $numFiliere;
         $this->nomClasse = $nomClasse;
     }
-    
-    public function getNumClass() {
+    public function getIdSpec() {
+        return $this->idSpec;
+    }
+
+    public function setIdSpec($idSpec) {
+        $this->idSpec = $idSpec;
+    }
+
+        public function getNumClass() {
         return $this->numClass;
     }
 
-    public function getIdSpec() {
-        return $this->rang;
-    }
 
     public function getNumFIliere() {
-        return $this->libelle;
+        return $this->numFiliere;
     }
     public function getNomClasse()
     {
@@ -40,9 +44,6 @@ class M_Classe {
         $this->numClass = $numClass;
     }
 
-    public function setIdSpec($idSpec) {
-        $this->idSpec = $idSpec;
-    }
 
     public function setNumFiliere($numFiliere) {
         $this->numFiliere = $numFiliere;
