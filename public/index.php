@@ -1,3 +1,4 @@
+<head><meta charset='UTF-8'</head>
 <?php
 
 require_once("../conf/fonctions.php");
