@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-	<head>
-		<title> MARGO | Authentification </title>
-		<link rel="stylesheet" href="../Webroot/css/style.css" />
-		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/bootstrap-theme.css" />
+<?php
+if (!is_null($this->lire('message'))) {
+    echo "<strong>".$this->lire('message')."</strong>";
+}
+?>
 
-	</head>
 
-	<body>
-		<div class="auth">
+<div class="auth">
 		<h2> MARGO | ESPACE ADMIN </h2>
 		<hr>
 		<form method="POST" action="../public/index.php?controleur=connexion&action=authentifier">
-		<label> Login  </label><span class="push-log"></span><input type="text"></input><br />
-		<p></p>	
-		<label>Mot de passe  </label><span class="push-pswd"></span><input type="password"></input><br /><br />
-		<input class="button" type="submit" value="Se connecter" />
+		
+                    <label for="login">login :</label>
+                    <input type="text" name="login" id="login"></input><br/>
+                    <label for="mdp">mot de passe :</label>
+                    <input type="password" name="mdp" id="mdp"></input><br/>
+                    <input type="submit" value="Valider" ></input><br/>
 		</form>
 		</div>
-	</body>
-</html>

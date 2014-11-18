@@ -7,10 +7,10 @@
             <h2>Centre De formation</h2>
             <ul>
             <?php
-                $loginAuthentification = SessionAuthentifiee::estAuthentifie(array('login'));
+                
 
 
-            if ($loginAuthentification == null) {
+            if (is_null($this->lire('loginAuthentification'))) {
                 ?>
                 <li><a href="<?php echo "../public/index.php?controleur=connexion&action=seConnecter\""; ?>" >Connexion </a></li>
             <?php } else {
