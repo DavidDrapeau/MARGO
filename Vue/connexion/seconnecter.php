@@ -18,7 +18,7 @@ and open the template in the editor.
 		<div class="auth">
 		<h2> MARGO | ESPACE ADMIN </h2>
 		<hr>
-		<form method="post" action="#">
+		<form method="POST" action="../public/index.php?controleur=connexion&action=authentifier">
 		<label> Login  </label><span class="push-log"></span><input type="text"></input><br />
 		<p></p>	
 		<label>Mot de passe  </label><span class="push-pswd"></span><input type="password"></input><br /><br />
