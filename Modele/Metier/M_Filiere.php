@@ -5,7 +5,7 @@
  *
  * @author btssio
  */
-class M_Classe {
+class M_FIliere {
 
     private $numFiliere; 
     private $libFiliere;

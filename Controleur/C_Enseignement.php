@@ -15,7 +15,12 @@ class C_Enseignement
         $uneVue->vue->ajouter('titreVue','MARGO | Ajout matière') ;
         
         $filiere = new M_DaoFiliere() ;
+       $filiere->connecter() ;
+        $filiere->getPdo() ;
+        
+        var_dump($filiere->getPdo()) ;
         $filieres = $filiere->getAll() ;
+
         var_dump($filieres) ;
    
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
