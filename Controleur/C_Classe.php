@@ -14,8 +14,6 @@ class C_Classe
         $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
         $uneVue->vue->ajouter('titreVue','MARGO | Ajout classe') ;
             
-        annee
-        filiere
    
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
             $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
