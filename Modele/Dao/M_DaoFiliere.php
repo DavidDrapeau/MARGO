@@ -38,7 +38,6 @@ class M_DaoFiliere extends M_DaoGenerique
      
         try {
             // préparer la requête PDO
-            var_dump($sql) ;
             $queryPrepare = $this->pdo->prepare($sql);
             // exécuter la requête PDO
             if ($queryPrepare->execute()) {
