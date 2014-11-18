@@ -11,10 +11,10 @@
     
             // remplissage du "SELECT" qui contien les roles
           
-            foreach ($this->lireDonnee('listeClasse') as $classe) {
+            foreach ($this->lireDonnee('listeEnseignement') as $enseignements) {
              
               
-                echo'<option value="' . $classe->getNumClass() . '">' . $classe->getNumClass() . '</option>';
+                echo'<option value="' . $enseignements->getIdEnseignement() . '">' . $enseignements.getLibEnseignement() . '</option>';
             }
             ?>  
          </select>
