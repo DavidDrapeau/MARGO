@@ -6,7 +6,7 @@
                                         <h3>Enseignement</h3>
                                         <hr>
 					<li><span class="glyphicon glyphicon-bookmark"> </span> <a href="#">Liste Enseignements</a></li>                                     
-                                        <li><span class="glyphicon glyphicon-bookmark"> </span> <a href="?controleur=Enseignement&action=ajouter">Ajouter une matière</a></li>
+                                        <li><span class="glyphicon glyphicon-bookmark"> </span> <a href="">Ajouter une matière</a></li>
                                         
                                         <h3>Filières</h3>
                                         <hr>
@@ -15,8 +15,8 @@
                                         
                                         <h3>Classes</h3>
                                         <hr>
-					<li><span class="glyphicon glyphicon-briefcase"> </span> <a href="#">Liste classes</a></li>
-                                        <li><span class="glyphicon glyphicon-briefcase"> </span> <a href="#">Ajouter classes</a></li>
+					<li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Enseignement&action=show">Liste classes</a></li>
+                                        <li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Enseignement&action=ajouter">Ajouter classes</a></li>
                                         
                                         <h3>Elèves</h3>
                                         <hr>

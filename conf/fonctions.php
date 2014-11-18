@@ -14,10 +14,10 @@ function __autoload($classe) {
             $sousSuffixe = substr($classe, 2, 3);
             switch ($sousSuffixe) {
                 case "Dao" :
-                    $chemin = "../Modele/dao/";
+                    $chemin = "../Modele/Dao/";
                     break;
                 default :
-                    $chemin = "../Modele/metier/";
+                    $chemin = "../Modele/Metier/";
                     break;                   
             }
             break;
