@@ -1,6 +1,6 @@
 <?php
 
-class Etudiant{
+class M_Etudiant{
     private $nom;
     private $prenom;
     private $codeClasse;
