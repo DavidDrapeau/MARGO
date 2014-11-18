@@ -239,3 +239,18 @@ footer
          padding-top : 4%;
          padding-left: 3%;
 }
+.content-page
+{
+    margin: 50px ;
+    margin-left : 35% ;
+    line-height: 70px ;
+}
+.pushNum{
+    margin : 30px ;
+}
+.pushName{
+    margin-left : 61px ;
+}
+.pushFiliere{
+    margin : 141px ;
+}

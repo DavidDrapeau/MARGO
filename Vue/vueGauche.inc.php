@@ -15,8 +15,8 @@
                                         
                                         <h3>Classes</h3>
                                         <hr>
-					<li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Enseignement&action=show">Liste classes</a></li>
-                                        <li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Enseignement&action=ajouter">Ajouter classes</a></li>
+					<li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Classe&action=show">Liste classes</a></li>
+                                        <li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Classe&action=ajouter">Ajouter classes</a></li>
                                      
                                         <h3>Elèves</h3>
                                         <hr>
