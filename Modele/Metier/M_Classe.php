@@ -13,9 +13,8 @@ class M_Classe {
     private $nomClasse;
 
 
-     function __construct($numClass, $idSpec, $numFiliere,$nomClasse) {
+     function __construct($numClass, $numFiliere,$nomClasse) {
         $this->numClass = $numClass;
-        $this->idSpec = $idSpec;
         $this->numFiliere = $numFiliere;
         $this->nomClasse = $nomClasse;
     }
@@ -29,7 +28,7 @@ class M_Classe {
     }
 
     public function getNumFIliere() {
-        return $this->libelle;
+        return $this->numFiliere;
     }
     public function getNomClasse()
     {

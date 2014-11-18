@@ -9,11 +9,39 @@ class M_DaoClasse extends M_DaoGenerique
     }
 
     public function enregistrementVersObjet($enreg) {
-          $retour = new M_Classe($enreg['NUMCLASSE'], $enreg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
+          $retour = new M_Classe($enreg['NUMCLASSE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
+         
         return $retour;
     }
 
     public function insert($objetMetier) {
+        $retour = FALSE;
+        try {
+            // Requête textuelle paramétrée (paramètres nommés)
+            $sql = "INSERT INTO $this->nomTable (";
+            $sql .= " NUMCLASSE, IDSPECIALITE, NUMFILIERE, NOMCLASSE)";
+            $sql .= " VALUES (";
+            $sql .= ":numClass, null, :numFiliere, :nomClasse)";
+          
+          
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+            var_dump($queryPrepare) ;
+            // préparer la  liste des paramètres, avec l'identifiant en dernier
+            $parametres = $this->objetVersEnregistrement($objetMetier);
+            var_dump($parametres);
+           
+            // exécuter la requête avec les valeurs des paramètres dans un tableau
+            var_dump($retour = $queryPrepare->execute($parametres));
+         
+          
+//            debug_query($sql, $parametres);
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+    
+        
+        return $retour;
         
     }
 
