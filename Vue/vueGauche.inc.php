@@ -18,10 +18,11 @@
 					<li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Classe&action=show">Liste classes</a></li>
                                         <li><span class="glyphicon glyphicon-briefcase"> </span> <a href="?controleur=Classe&action=ajouter">Ajouter classes</a></li>
                                      
-                                        <h3>Elèves</h3>
+                           
+                                        <h3>Personnes</h3>
                                         <hr>
-                                        <li><span class="glyphicon glyphicon-user"> </span> <a href="#">Liste lèves</a></li>
-					<li><span class="glyphicon glyphicon-user"> </span> <a href="#">Ajouter Elèves</a></li>
+                                        <li><span class="glyphicon glyphicon-user"> </span> <a href="#">Liste des personnes</a></li>
+					<li><span class="glyphicon glyphicon-user"> </span> <a href="?controleur=AdminPersonnes&action=creerPersonne">Ajouter Personne</a></li>
 				</ul>
 			</div>
 		</nav>
