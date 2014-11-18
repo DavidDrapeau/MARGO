@@ -5,7 +5,7 @@
  *
  * @author btssio
  */
-define('DSN', 'mysql:host=localhost;dbname=baselafleur1');
+define('DSN', 'mysql:host=localhost;dbname=MARGO');
 define('USER', 'root');
 define('MDP', 'joliverie');
 
