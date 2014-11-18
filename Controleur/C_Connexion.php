@@ -28,13 +28,13 @@ class C_Connexion {
         
         
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
-        $this->vue->ajouter('titre', 'Se connecter');
+        $this->vue->ajouter('titreVue',"Margo : Accueil");
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
         $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         
-        $this->vue->ajouter('titreVue',"Margo : Accueil");
+        
         $this->vue->ajouter('centre',"../Vue/connexion/authentification.php");
 
 
@@ -79,6 +79,25 @@ class C_Connexion {
     function seDeconnecter() {
         MaSession::fermer();
         header("Location:  index.php");
+    }
+    
+    
+    function monCompte(){
+        
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue->ajouter('titreVue',"Margo : Mon comp");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        $this->vue->ajouter('centre', "../Vue/connexion/monCompte.php");
+      
+       
+       
+        
+        
+        $this->vue->afficher();
+        
     }
 
 }

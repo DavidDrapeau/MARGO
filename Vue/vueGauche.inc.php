@@ -10,7 +10,7 @@
                                         
                                         <h3>Filières</h3>
                                         <hr>
-					<li><span class="glyphicon glyphicon-tasks"> </span> <a href="#">Liste Filières</a></li>
+					<li><span class="glyphicon glyphicon-tasks"> </span> <a href="?controleur=Filiere&action=afficherFilieres">Liste Filières</a></li>
                                         <li><span class="glyphicon glyphicon-tasks"> </span> <a href="#">Ajouter Filières</a></li>
                                         
                                         <h3>Classes</h3>

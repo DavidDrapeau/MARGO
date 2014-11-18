@@ -16,7 +16,7 @@
             <?php } else {
                 ?>
                 <li><a href="<?php echo "../public/index.php?controleur=connexion&action=seDeconnecter\""; ?>" >Deconnexion  </a></li>
-                <li><a href="#" class="settings"> <span class="glyphicon glyphicon-wrench"> </span>  Mon compte | </a></li>
+                <li><a href="../public/index.php?controleur=connexion&action=monCompte" class="settings"> <span class="glyphicon glyphicon-wrench"> </span>  Mon compte | </a></li>
                 <?php
             }
             ?>
