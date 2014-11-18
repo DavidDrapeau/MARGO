@@ -1,6 +1,6 @@
 <?php
 
-interface C_Personne{
+class C_Personne{
     
     
     
