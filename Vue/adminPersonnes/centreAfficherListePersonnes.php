@@ -1,11 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> 
 
-<form method="post" action=".?controleur=AdminPersonness&action=listePersonnes">
+<form method="post" action=".?controleur=AdminPersonnes&action=listePersonnes">
     <table>
         <tr>
             <th>Id Personne </th>
             <th> Nom </th>
-<!--            <th> Id Specialite </th>-->
+            <th> Action </th>
         </tr>
         <?php
             $listePersonnes = $this->lire('lesPersonnes');
@@ -16,7 +16,9 @@
         <tr>
             <td><?php echo $unePersonne->getId() ?></td>
             <td><?php echo $unePersonne->getNom() ?></td>
-<!--            <td><?php echo $unePersonne->getSpecialite()?></td>-->
+            
+            <!-- Afficher les détails du stage -->
+            <td><a href="?controleur=AdminPersonnes&action=afficherPersonne&idPersonne=<?php echo $unePersonne->getId() ?>">Détails</a></td>
         </tr>
             
     <?php  } ?>
