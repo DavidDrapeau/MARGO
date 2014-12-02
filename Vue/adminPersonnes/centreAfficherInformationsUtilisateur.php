@@ -3,6 +3,7 @@
 <?php 
 $unUtilisateur = $this->lire('utilisateur');
 ?>
+<form method ="post" action=".?controleur=AdminPersonnes&action=modifierPersonne" name=ReadPerson>
     <h1>Informations personnelles</h1>
     <fieldset>
         <legend>Informations</legend>
@@ -32,6 +33,7 @@ $unUtilisateur = $this->lire('utilisateur');
             <input type="button" name="Modif" value="Modifier" onclick="self.location.href='?controleur=AdminPersonnes&action=modifierPersonne&idPersonne=<?php echo $unUtilisateur->getId() ?>'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick> 
             <input type="button" name="Sup" value="Supprimer" onclick="self.location.href='lien.html'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick> 
     </fieldset>
+</form>
    
 <?php
 if (!is_null($this->lire('message'))) {

@@ -93,7 +93,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         
         
         /**
-     * Fonction qui permet d'afficher une Personne après validation
+     * Fonction qui permet d'afficher les détails d'une personne
      * @param id de la personne
      */
     function afficherPersonne() {
@@ -141,24 +141,43 @@ class C_AdminPersonnes extends C_ControleurGenerique {
      * @param id de la personne
      */
     function modifierPersonne() {
+          
+        
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");       
-        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-       
-        // les données
-        $this->vue->ajouter('titreVue', "Afficher une personne");
+        $this->vue->ajouter('titreVue', 'Modification d\'une personne');
+        
+        // ... depuis la BDD       
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
+        $pdo = $daoPers->getPdo();
+        
         $idPersonne = $_GET['idPersonne'];
         $personne = $daoPers->getOneById($idPersonne);
-        $daoPers->deconnecter();
-        $this->vue->ajouter('utilisateur', $personne);
+        $this->vue->ajouter('personne', $personne);
+        
+        // Mémoriser la liste des spécialités disponibles
+        $daoSpecialite = new M_DaoSpecialite();
+        $daoSpecialite->setPdo($pdo);
+        $this->vue->ajouter('lesSpecialites', $daoSpecialite->getAll());
+      
+        // Mémoriser la liste des rôles disponibles
+        $daoRole = new M_DaoRole();
+        $daoRole->setPdo($pdo);
+        $this->vue->ajouter('lesRoles', $daoRole->getAll());
+        
+        $this->vue->ajouter('loginAuthentification',MaSession::get('login'));
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
         $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreModifierInformationsUtilisateur.php");
-        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+               
         $this->vue->afficher();
     }
     
+     /**
+     * Fonction qui valide la modification des infos d'une personne
+     * @param id de la personne
+     */
     function validationModifPersonne(){
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
@@ -169,7 +188,28 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
         $idPersonne = $_GET['idPersonne'];
+        $specialite = $_POST["option"];
+        $role = $_POST["role"];
+        $civilite = $_POST["civilite"];
+        $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
+        $mail = $_POST["mail"];
+        $numTel = $_POST["tel"];
+        $mobile = $_POST["telP"];
+        $etudes = $_POST["etudes"];
+        $formation = $_POST["formation"];
+        $login = $_POST["login"];
+        $mdp = sha1($_POST["mdp"]);
         
+        $objetRole = new M_Role($role, null, null);
+        $pers = new M_Personne(null, $specialite, $objetRole, $civilite, $nom, $prenom, $numTel, $mail, $mobile, $etudes, $formation, $login, $mdp);
+        
+        $personneModif = $daoPers->update($idPersonne,$pers );
+        $daoPers->deconnecter();
+        $this->vue->ajouter('utilisateur', $personneModif);
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherInformationsUtilisateur.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher();
     }
    }
 ?>
