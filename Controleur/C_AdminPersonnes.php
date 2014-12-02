@@ -99,12 +99,11 @@ class C_AdminPersonnes extends C_ControleurGenerique {
     function afficherPersonne() {
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-       
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");       
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
        
         // les données
-        $this->vue->ajouter('titreVue', "GestStage : Afficher une personne");
+        $this->vue->ajouter('titreVue', "Afficher une personne");
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
         $idPersonne = $_GET['idPersonne'];
@@ -115,7 +114,27 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
-
+    
+    /**
+     * Fonction qui permet d'afficher la liste des personnes
+     */
+    function listePersonnes(){
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");  
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+        //Récupérations des données
+        $this->vue->ajouter('titreVue', "Liste des personnes");
+        $daoPers = new M_DaoPersonne();
+        $daoPers->connecter();
+        $lesPersonnes= $daoPers->getAll();
+        $daoPers->deconnecter();
+        $this->vue->ajouter('lesPersonnes', $lesPersonnes);
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherListePersonnes.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher();
+    }
    }
 ?>
 

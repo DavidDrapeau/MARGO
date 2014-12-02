@@ -5,6 +5,9 @@
         <label>Nom de l'enseignement : </label><input type="text" name="nameClasse" />
         
     </form>
-    
+    <fieldset>
+        <input type="submit" value="Creer" onclick="return valider()"></input><!-- OnClick éxécutera le JS qui testera tout les champ du formulaire. -->
+        <input type="button" value="Retour" onclick="history.go(-1)">
+    </fieldset>
 </div>
         

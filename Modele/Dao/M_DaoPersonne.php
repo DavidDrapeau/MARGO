@@ -77,7 +77,6 @@ class M_DaoPersonne extends M_DaoGenerique {
      * @return tableau-associatif d'objets : un tableau d'instances de la classe métier
      */
     function getAll() {
-        echo "--- getAll redéfini ---<br/>";
         $retour = null;
         // Requête textuelle
         $sql = "SELECT * FROM $this->nomTable P ";
