@@ -72,7 +72,7 @@ class C_classe
         $this->vue->afficher() ;
     }
     
-    function show()
+    function show($message=null)
     {
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -126,8 +126,58 @@ class C_classe
     
     function deleteById()
     {
-        var_dump($_GET) ;
-        
+           
+        $daoClasse = new M_DaoClasse();
+        $daoClasse->connecter();
+        $daoClasse->getPdo() ;      
+        $id=$_GET['idClasse'] ;
+        $mess=  $daoClasse->delete($id) ;
         $this->show() ;
+    }
+    
+    function updateById()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/includes/centreModifierClasse.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+    
+        
+        $id = $_GET['idClasse'] ;
+        
+        $daoClasse = new M_DaoClasse();
+        $daoClasse->connecter();
+        $daoClasse->getPdo() ;
+        
+        $laClasse = $daoClasse->getAllById($id);
+         $this->vue->ajouter('laClasse', $laClasse) ;
+        
+        $this->vue->afficher() ;
+    }
+    
+    function update()
+    {
+        
+        $daoClasse = new M_DaoClasse();
+        $daoClasse->connecter();
+        $daoClasse->getPdo() ;     
+        var_dump($_POST) ;die() ;
+        $id=$_POST['numClass'] ;
+        $name=$_POST['nameClasse'] ;
+        $spe = $_POST[''] ;
+       if($daoClasse->update($id))
+       {
+           $message = "La classe à bien été mis à jours" ;
+           
+       } else {
+           $message = "Une erreur lors de la mise à jours" ;
+       }
+           
+        $this->show($message) ;
+        
     }
 }
