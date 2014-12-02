@@ -1,5 +1,7 @@
 <div class="content-page">
+
     <h2>Ajouter une classe</h2>
+ 
     <hr>
     <form action="?controleur=Classe&action=validation" method="post">
         <label>Numero de la classe : </label><span class="pushNum"></span><input type="text" name="numClass" /><br>

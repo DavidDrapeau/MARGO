@@ -46,6 +46,10 @@ label
 {
 	padding-left : 52px ;
 }
+.pushSpe
+{
+	padding-left : 112px ;
+}
 .auth input
 {
 	-webkit-border-radius: 5px;
@@ -62,6 +66,9 @@ label
 .auth label
 {
 	color : #eeeeee ;
+}
+input{
+    width : 450px ;
 }
 .auth h2
 {

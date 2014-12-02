@@ -104,15 +104,30 @@ class C_classe
         $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/includes/centreAfficherDetail.php");
+        $this->vue->ajouter('centre',"../Vue/includes/centreAfficherDetailClasse.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         
-       var_dump($_GET) ;
+    
         
-        $id = GET['idClasse'] ;
+        $id = $_GET['idClasse'] ;
         
+        $daoClasse = new M_DaoClasse();
+        $daoClasse->connecter();
+        $daoClasse->getPdo() ;
         
+          $laClasse = $daoClasse->getAllById($id);
+      
+        
+        $this->vue->ajouter('laClasse', $laClasse) ;
         
         $this->vue->afficher() ;
+        
+    }
+    
+    function deleteById()
+    {
+        var_dump($_GET) ;
+        
+        $this->show() ;
     }
 }
