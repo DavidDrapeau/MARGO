@@ -261,3 +261,21 @@ footer
 .pushFiliere{
     margin : 141px ;
 }
+.showClasse
+{
+    padding-top : 20px;
+    padding-left : 25%;
+}
+.alert-message
+{
+   text-align : center ;
+  text-decoration : bold ;
+  font-size : 18px; 
+    color : #FFF ;
+    background-color :  #b71c1c ;
+ 
+}
+.showCLasse table
+{
+    line-height:  40px ;
+}

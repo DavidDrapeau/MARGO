@@ -9,21 +9,22 @@ class M_DaoClasse extends M_DaoGenerique
     }
 
     public function enregistrementVersObjet($enreg) {
-   
+      
           $retour = new M_Classe($enreg['NUMCLASSE'], $enreg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
-         
+     
         return $retour;
+        
     }
       public function objetVersEnregistrement($objetMetier) {
-  
+
               $retour = array(
             ':numClass' => $objetMetier->getNumClass(),
             ':idSpec'   =>$objetMetier->getIdSpec(),
             ':numFiliere' => $objetMetier->getNumFiliere(),
             ':nomClass' => $objetMetier->getNomClasse()
         );
-           
-        return $retour;
+              
+               return $retour;
     }
 
     public function insert($objetMetier) {
@@ -59,10 +60,38 @@ class M_DaoClasse extends M_DaoGenerique
     }
 
  
+    public function update($idMetier, $objetMetier) {
+         $retour = FALSE;
+        // Requête textuelle
+     
+          try {
+        $sql = "UPDATE $this->nomTable "
+                ."SET IDSPECIALITE = :idSpec, "
+                ."NUMFILIERE  = :numFiliere, "
+                ."NOMCLASSE = :nomClass "
+                ."WHERE NUMCLASSE=:numClass";
+        
+ 
+       
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+            // préparer la  liste des paramètres, avec l'identifiant en dernier
+            $parametres = $this->objetVersEnregistrement($objetMetier);
+           
+          
+       
+    
+            // exécuter la requête avec les valeurs des paramètres dans un tableau
+            
+            $retour = $queryPrepare->execute($parametres);
 
+      } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+    
     
 
-    public function update($idMetier, $objetMetier) {
+        return $retour;
         
     }
     

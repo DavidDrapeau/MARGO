@@ -1,4 +1,8 @@
-<div class="">
+<div class="alert-message"><p><?php echo $this->lire('message') ;?></p></div>
+<div class="showClasse">
+    <h2> Liste des Classes </h2>
+    <hr>
+    <br />
 <table>
   <tr>
     <td>Numero de la classe</td>
@@ -25,3 +29,4 @@
   ?>
 </table>
 </div>
+
