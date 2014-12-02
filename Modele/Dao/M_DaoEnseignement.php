@@ -1,6 +1,6 @@
 <?php
 
-class M_DaonsEnseignement extends M_DaoGenerique
+class M_DaoEnseignement extends M_DaoGenerique
 {
     
        function __construct() {
@@ -38,7 +38,6 @@ class M_DaonsEnseignement extends M_DaoGenerique
      
         try {
             // préparer la requête PDO
-            var_dump($sql) ;
             $queryPrepare = $this->pdo->prepare($sql);
             // exécuter la requête PDO
             if ($queryPrepare->execute()) {

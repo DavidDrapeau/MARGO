@@ -14,7 +14,25 @@ class M_DaoFiliere extends M_DaoGenerique
     }
 
     public function insert($objetMetier) {
-        
+        $retour = FALSE;
+        try {
+            // Requête textuelle paramétrée (paramètres nommés)
+            $sql = "INSERT INTO $this->nomTable (";            
+            $sql .= "NUMFILIERE,LIBELLEFILIERE)";
+            $sql .= "VALUES (";          
+            $sql .= ":numFiliere,:libFiliere)";
+            var_dump($sql);
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+            // préparer la  liste des paramètres, avec l'identifiant en dernier
+            $parametres = $this->objetVersEnregistrement($objetMetier);
+            // exécuter la requête avec les valeurs des paramètres dans un tableau
+            $retour = $queryPrepare->execute($parametres);
+//            debug_query($sql, $parametres);
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+        return $retour;
     }
 
     public function objetVersEnregistrement($objetMetier) {

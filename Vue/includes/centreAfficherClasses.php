@@ -15,7 +15,7 @@
   <tr>
     <td><?php echo $classe->getNumClass() ; ?></td>
     <td><?php echo $classe->getNomClasse(); ?></td>
-    <td><a href="?controleur=Classe&action=showByID&idClasse=<?php echo $classe->getNumClass() ; ?>"> Afficher </a> | <a href="#">Modifier</a>  </td>
+    <td><a href="?controleur=Classe&action=showByID&idClasse=<?php echo $classe->getNumClass() ; ?>"> Afficher </a> | <a href="?controleur=Classe&action=updateById&idClasse=<?php echo $classe->getNumClass() ; ?>">Modifier</a> | <a href="?controleur=Classe&action=deleteById&idClasse=<?php echo $classe->getNumClass() ; ?>">Supprimer </a>   </td>
   </tr>
 
 
