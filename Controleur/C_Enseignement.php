@@ -32,7 +32,7 @@ class C_Enseignement
    
             $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
             $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-            $uneVue->ajouter('centre',"../Vue/includes/centreAjoutEnseignement.php");
+            $uneVue->ajouter('centre',"../Vue/includes/centreAfficherEnseignement.php");
             $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
             
         $uneVue->afficher();

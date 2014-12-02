@@ -10,7 +10,7 @@ class M_DaoClasse extends M_DaoGenerique
 
     public function enregistrementVersObjet($enreg) {
    
-          $retour = new M_Classe($enreg['NUMCLASSE'], $enrg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
+          $retour = new M_Classe($enreg['NUMCLASSE'], $enreg['IDSPECIALITE'], $enreg['NUMFILIERE'],  $enreg['NOMCLASSE']);
          
         return $retour;
     }
