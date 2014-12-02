@@ -95,5 +95,37 @@ class M_DaoClasse extends M_DaoGenerique
         }
         return $retour;
     }
+    function getAllById($id)
+    {
+          $retour = null;
+        // Requête textuelle
+        $sql = "SELECT * FROM $this->nomTable P INNER JOIN FILIERE F ON P.NUMFILIERE=F.NUMFILIERE WHERE NUMCLASSE ='".$id."'";
+        try {
+            // préparer la requête PDO
+          
+            $queryPrepare = $this->pdo->prepare($sql);
+            // exécuter la requête PDO
+            if ($queryPrepare->execute()) {
+                // si la requête réussit :
+                // initialiser le tableau d'objets à retourner
+                $retour = array();
+                // pour chaque enregistrement retourné par la requête
+                while ($enregistrement = $queryPrepare->fetch(PDO::FETCH_ASSOC)) {
+                    // construir un objet métier correspondant
+                    $unObjetMetier = $this->enregistrementVersObjet($enregistrement);
+                    // ajouter l'objet au tableau
+                    $retour[] = $unObjetMetier;
+                }
+            }
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+        return $retour;
+    }
+    
+    public function delelte($id)
+    {
+        
+    }
 
 }

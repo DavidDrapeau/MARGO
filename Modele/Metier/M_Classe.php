@@ -32,7 +32,7 @@ class M_Classe {
     }
 
 
-    public function getNumFIliere() {
+    public function getNumFiliere() {
         return $this->numFiliere;
     }
     public function getNomClasse()
