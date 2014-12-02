@@ -125,7 +125,26 @@ class M_DaoClasse extends M_DaoGenerique
     
     public function delelte($id)
     {
-        
+          $retour = null;
+        // Requête textuelle
+        $sql = "DELETE FROM $this->nomTable P WHERE condition NUMCLASSE ='".$id."' ";
+        try {
+            // préparer la requête PDO
+          
+            $queryPrepare = $this->pdo->prepare($sql);
+            // exécuter la requête PDO
+            if ($queryPrepare->execute()) {
+                // si la requête réussit :
+                // initialiser le tableau d'objets à retourner
+                $retour = "La classe à bien été supprimée ! " ;
+                }
+                else {
+                    $retour = "Erreur lors de la suppression de la classe " ;
+            }
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+        return $retour;
     }
 
 }

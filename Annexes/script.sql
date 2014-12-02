@@ -1,11 +1,9 @@
-CREATE DATABASE IF NOT EXISTS MARGO;
-USE MARGO;
 -- phpMyAdmin SQL Dump
 -- version 3.4.11.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mar 18 Novembre 2014 à 09:35
+-- Généré le: Mar 02 Décembre 2014 à 10:53
 -- Version du serveur: 5.5.37
 -- Version de PHP: 5.4.6-1ubuntu1.8
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `gestage`
+-- Base de données: `MARGO`
 --
 
 -- --------------------------------------------------------
@@ -90,10 +88,29 @@ CREATE TABLE IF NOT EXISTS `CLASSE` (
 --
 
 INSERT INTO `CLASSE` (`NUMCLASSE`, `IDSPECIALITE`, `NUMFILIERE`, `NOMCLASSE`) VALUES
-('1SIOA', NULL, 4, '1ére année BTS Service Informatique auxOrganisation'),
-('1SIOB', NULL, 4, '1ére année BTS Service Informatique auxOrganisation'),
+('2MUC', NULL, 1, '2ème Année de Management'),
 ('2SISR', 2, 4, '2ème année BTS Service Informatique auxOrganisation'),
 ('2SLAM', 1, 4, '2ème année BTS Service Informatique auxOrganisation');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ENSEIGNEMENT`
+--
+
+CREATE TABLE IF NOT EXISTS `ENSEIGNEMENT` (
+  `ID_ENSEIGNEMENT` int(10) NOT NULL AUTO_INCREMENT,
+  `LIB_ENSEIGNEMENT` varchar(50) NOT NULL,
+  PRIMARY KEY (`ID_ENSEIGNEMENT`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `ENSEIGNEMENT`
+--
+
+INSERT INTO `ENSEIGNEMENT` (`ID_ENSEIGNEMENT`, `LIB_ENSEIGNEMENT`) VALUES
+(1, 'Mathématiques'),
+(2, 'Histoire-Geo');
 
 -- --------------------------------------------------------
 
@@ -102,10 +119,10 @@ INSERT INTO `CLASSE` (`NUMCLASSE`, `IDSPECIALITE`, `NUMFILIERE`, `NOMCLASSE`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `FILIERE` (
-  `NUMFILIERE` int(11) NOT NULL,
+  `NUMFILIERE` int(11) NOT NULL AUTO_INCREMENT,
   `LIBELLEFILIERE` varchar(128) NOT NULL,
   PRIMARY KEY (`NUMFILIERE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `FILIERE`
