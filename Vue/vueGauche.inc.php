@@ -1,4 +1,3 @@
-
 <nav>
 			<div class="nav-bar">
 				<h3> Menu Principal</h3>
@@ -21,7 +20,7 @@
                                      
                                         <h3>Personnes</h3>
                                         <hr>
-                                        <li><span class="glyphicon glyphicon-user"> </span> <a href="#">Liste des personnes</a></li>
+                                        <li><span class="glyphicon glyphicon-user"> </span> <a href="?controleur=AdminPersonnes&action=listePersonnes">Liste des personnes</a></li>
 					<li><span class="glyphicon glyphicon-user"> </span> <a href="?controleur=AdminPersonnes&action=creerPersonne">Ajouter Personne</a></li>
 				</ul>
 			</div>

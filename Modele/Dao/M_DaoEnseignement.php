@@ -1,7 +1,6 @@
 <?php
 
-class M_DaoEnseignement extends M_DaoGenerique
-{
+class M_DaoEnseignement extends M_DaoGenerique{
     
        function __construct() {
         $this->nomTable = "ENSEIGNEMENT";
@@ -13,10 +12,6 @@ class M_DaoEnseignement extends M_DaoGenerique
         return $retour;
     }
 
-    public function insert($objetMetier) {
-        
-    }
-
     public function objetVersEnregistrement($objetMetier) {
              $retour = array(
             ':idEnseignement' => $objetMetier->getIdEnseignement(),
@@ -24,17 +19,13 @@ class M_DaoEnseignement extends M_DaoGenerique
         );
         return $retour;
     }
-
-    public function update($idMetier, $objetMetier) {
-        
-    }
     
     public function getAll()
     {
       
         $retour = null;
         // Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable E ";
+        $sql = "SELECT * FROM $this->nomTable ";
      
         try {
             // préparer la requête PDO
@@ -57,13 +48,41 @@ class M_DaoEnseignement extends M_DaoGenerique
         }
         return $retour;
     }
+    
+    public function insert($objetMetier) {
+  
+        $retour = FALSE;
+        try {
+            // Requête textuelle paramétrée (paramètres nommés)
+            $sql = "INSERT INTO $this->nomTable (";
+            $sql .= " ID_ENSEIGNEMENT, LIB_ENSEIGNEMENT)";
+            $sql .= " VALUES (";
+            $sql .= ":idEnseignement, :libEnseignement)";
+          
+          
+            // préparer la requête PDO
+            $queryPrepare = $this->pdo->prepare($sql);
+        
+            // préparer la  liste des paramètres, avec l'identifiant en dernier
+            $parametres = $this->objetVersEnregistrement($objetMetier);
+           
+    
+            // exécuter la requête avec les valeurs des paramètres dans un tableau
+            
+            $retour = $queryPrepare->execute($parametres);
+        
+         
+        } catch (PDOException $e) {
+            echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
+        }
+    
+
+        return $retour;
+        
+    }
+
+    public function update($idMetier, $objetMetier) {
+        
+    }
 
 }
-
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
