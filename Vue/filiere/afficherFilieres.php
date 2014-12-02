@@ -21,9 +21,9 @@ foreach ($this->lire('filieres') as $filiere)
                 </td>
                 
                 <td>
-                    <a href="">Afficher</a>
-                    <a href="">Editer</a>
-                    <a href="">Supprimer</a>
+                   
+                    <a href="?controleur=Filiere&action=editer&idFiliere=<?php echo $filiere->getNumFiliere(); ?>">Editer</a>
+                    <a href="?controleur=Filiere&action=supprimer&idFiliere=<?php echo $filiere->getNumFiliere(); ?>">Supprimer</a>
                 </td>
             </tr>
 

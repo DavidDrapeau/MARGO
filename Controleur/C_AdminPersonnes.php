@@ -135,6 +135,42 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
+    
+            /**
+     * Fonction qui permet d'afficher une Personne et on peut modifier ses informations
+     * @param id de la personne
+     */
+    function modifierPersonne() {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");       
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+       
+        // les données
+        $this->vue->ajouter('titreVue', "Afficher une personne");
+        $daoPers = new M_DaoPersonne();
+        $daoPers->connecter();
+        $idPersonne = $_GET['idPersonne'];
+        $personne = $daoPers->getOneById($idPersonne);
+        $daoPers->deconnecter();
+        $this->vue->ajouter('utilisateur', $personne);
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreModifierInformationsUtilisateur.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher();
+    }
+    
+    function validationModifPersonne(){
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");       
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+        //les données
+        $daoPers = new M_DaoPersonne();
+        $daoPers->connecter();
+        $idPersonne = $_GET['idPersonne'];
+        
+    }
    }
 ?>
 
