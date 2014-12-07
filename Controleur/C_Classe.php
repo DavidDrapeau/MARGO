@@ -27,7 +27,7 @@ class C_classe
             $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
             $this->vue->ajouter('centre',"../Vue/includes/centreAjoutClasse.php");
             $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-            
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));    
         $this->vue->afficher();
       
             
@@ -95,7 +95,7 @@ class C_classe
         {
             $this->vue->ajouter('message', $message) ;
         }
-        
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
     }
     
@@ -122,7 +122,7 @@ class C_classe
       
         
         $this->vue->ajouter('laClasse', $laClasse) ;
-        
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
         
     }

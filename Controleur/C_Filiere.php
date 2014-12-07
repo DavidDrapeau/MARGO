@@ -50,7 +50,7 @@ class C_Filiere {
         if ($message) {
             $this->vue->ajouter('message', $message);
         }
-
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
 
@@ -75,7 +75,7 @@ class C_Filiere {
         if ($message) {
             $this->vue->ajouter('message', $message);
         }
-
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
 

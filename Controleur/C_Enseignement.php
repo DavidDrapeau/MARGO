@@ -23,7 +23,7 @@ class C_Enseignement
             $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
             $this->vue->ajouter('centre',"../Vue/enseignement/ajoutEnseignement.php");
             $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-            
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));    
         $this->vue->afficher();
       
             
@@ -79,6 +79,7 @@ class C_Enseignement
             $message ="Une erreure s'est produite" ;
         }
         $this->vue->ajouter('message', $message) ;
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
     }
     
