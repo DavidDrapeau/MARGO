@@ -79,8 +79,13 @@ $unUtilisateur = $this->lire('personne');
                 <?php
             // remplissage du "SELECT" qui contien les specialités
             foreach ($this->lire('lesSpecialites') as $specialite) {
-                if($unUtilisateur->getSpecialite()->getId()==$specialite->getId()){
-                    echo'<option selected="selected" value="' . $specialite->getId() . '">' . $specialite->getLibellecCourt() . '</option>';
+                var_dump($unUtilisateur->getSpecialite());
+                if($unUtilisateur->getSpecialite()!=null){
+                     if($unUtilisateur->getSpecialite()->getId()==$specialite->getId()){
+                        echo'<option selected="selected" value="' . $specialite->getId() . '">' . $specialite->getLibellecCourt() . '</option>';
+                     }else{
+                        echo'<option  value="' . $specialite->getId() . '">' . $specialite->getLibellecCourt() . '</option>';
+                     }
                 }else{
                     echo'<option  value="' . $specialite->getId() . '">' . $specialite->getLibellecCourt() . '</option>';
                 }
