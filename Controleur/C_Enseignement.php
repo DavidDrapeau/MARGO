@@ -118,9 +118,9 @@ class C_Enseignement
         $daoEnseignement = new M_DaoEnseignement();
         $daoEnseignement->connecter();
         $daoEnseignement->getPdo() ;      
-        $id=$_GET['idEnseignement'] ;
-        $mess=  $daoEnseignement->delete($id) ;
-        $this->afficher() ;
+        $id = $_GET['idEnseignement'] ;
+        $mess=  $daoEnseignement->delete($id) ;        
+        $this->afficher($mess) ;
     }
     
     function updateById()

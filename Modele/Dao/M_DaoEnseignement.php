@@ -149,7 +149,7 @@ class M_DaoEnseignement extends M_DaoGenerique{
     {
           $retour = null;
         // Requête textuelle
-        $sql = "DELETE FROM $this->nomTable E WHERE condition ID_ENSEIGNEMENT ='".$id."' ";
+        $sql = "DELETE FROM $this->nomTable WHERE ID_ENSEIGNEMENT=".$id;
         try {
             // préparer la requête PDO
           
