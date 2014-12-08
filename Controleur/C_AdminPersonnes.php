@@ -7,6 +7,10 @@
  * @author btssio
  */
 class C_AdminPersonnes extends C_ControleurGenerique {
+    
+    
+    private $connexion=true;
+    
     // Fonction d'affichage du formulaire de création d'une personne
     function creerPersonne(){
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -230,9 +234,13 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $daoPromo->delete($idPersonne);
         //Suppression dans la base Personne
         $daoPers->delete($idPersonne);
-        $daoPers->deconnecter();
+        $daoPers->deconnecter();        
         
         header('Location: ?controleur=AdminPersonnes&action=listePersonnes');
+    }   
+        
+    function getConnexion(){
+         return $this->connexion;
     }
     
    }

@@ -8,6 +8,8 @@
 class C_classe 
 {
     
+    private $connexion=true;
+    
     function ajouter()
     { 
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
@@ -194,5 +196,9 @@ class C_classe
            
         $this->show($message) ;
         
+    }
+    
+    function getConnexion(){
+         return $this->connexion;
     }
 }
