@@ -216,12 +216,23 @@ class C_AdminPersonnes extends C_ControleurGenerique {
     }
     
     function supprimerPersonne(){
+        //Objet Personne
         $daoPers = new M_DaoPersonne();
+        //Objet Promotion
+        $daoPromo = new M_DaoPromotion();
+        
         $daoPers->connecter();
+        $daoPromo->connecter();
         //Récupération de l'id de la personne
         $idPersonne = $_GET['idPersonne'];
+        
+        //Suppression dans la base Promotion
+        $daoPromo->delete($idPersonne);
+        //Suppression dans la base Personne
         $daoPers->delete($idPersonne);
         $daoPers->deconnecter();
+        
+        header('Location: ?controleur=AdminPersonnes&action=listePersonnes');
     }
     
    }
