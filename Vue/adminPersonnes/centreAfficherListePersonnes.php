@@ -1,6 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> 
 
-<form method="post" action=".?controleur=AdminPersonnes&action=listePersonnes">
     <table>
         <tr>
             <th>Id Personne </th>
@@ -24,7 +23,6 @@
     <?php  } ?>
  
     </table>
-</form>
 
 
 
