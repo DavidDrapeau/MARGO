@@ -1,6 +1,6 @@
 <div class="alert-message"><p><?php echo $this->lire('message') ;?></p></div>
 <div class="showClasse">
-    <h2> Liste des Classes </h2>
+    <h2> Liste des Classes</h2>
     <hr>
     <br />
 <table class="table table-hover">
