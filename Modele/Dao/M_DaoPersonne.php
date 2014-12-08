@@ -205,12 +205,13 @@ class M_DaoPersonne extends M_DaoGenerique {
 
     function update($idMetier, $objetMetier) {
         $retour = FALSE;
-        var_dump($objetMetier) ;
+       // var_dump($objetMetier) ;
         try {
             // Requête textuelle paramétrée (paramètres nommés)
             $sql = "UPDATE $this->nomTable SET ";
             $sql .= "IDROLE = :idRole , ";
             $sql .= "CIVILITE = :civilite , ";
+            $sql .= "IDSPECIALITE = :idSpecialite, ";
             $sql .= "NOM = :nom , ";
             $sql .= "PRENOM = :prenom , ";
             $sql .= "NUM_TEL = :numTel , ";
@@ -220,7 +221,7 @@ class M_DaoPersonne extends M_DaoGenerique {
             $sql .= "FORMATION = :formation , ";
             $sql .= "LOGINUTILISATEUR = :login , ";
             $sql .= "MDPUTILISATEUR = :mdp ";
-            $sql .= "WHERE IDPERSONNE ='".$idMetier."";
+            $sql .= "WHERE IDPERSONNE ='".$idMetier."'";
 //            var_dump($sql);
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
@@ -228,11 +229,12 @@ class M_DaoPersonne extends M_DaoGenerique {
             // préparer la  liste des paramètres la valeur de l'identifiant
             //  à prendre en compte est celle qui a été passée en paramètre à la méthode
             $parametres = $this->objetVersEnregistrement($objetMetier);
-            //var_dump($parametres) ;
+           // var_dump($parametres) ;
            // $parametres[':id'] = $idMetier;
             // exécuter la requête avec les valeurs des paramètres dans un tableau
             $retour = $queryPrepare->execute($parametres);
-           debug_query($sql, $parametres);
+           //debug_query($sql, $parametres);
+           
         } catch (PDOException $e) {
             echo get_class($this) . ' - ' . __METHOD__ . ' : ' . $e->getMessage();
         }

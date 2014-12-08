@@ -179,10 +179,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
      * @param id de la personne
      */
     function validationModifPersonne(){
-        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");       
-        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+       
         
         //les données
         $daoPers = new M_DaoPersonne();
@@ -204,12 +201,12 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $objetRole = new M_Role($role, null, null);
         $pers = new M_Personne(null, $specialite, $objetRole, $civilite, $nom, $prenom, $numTel, $mail, $mobile, $etudes, $formation, $login, $mdp);
         
-        $personneModif = $daoPers->update($idPersonne,$pers );
+        $personneModif = $daoPers->update($idPersonne,$pers);
+        
         $daoPers->deconnecter();
-        $this->vue->ajouter('utilisateur', $personneModif);
-        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherInformationsUtilisateur.php");
-        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
-        $this->vue->afficher();
+        
+        
+        $this::afficherPersonne($idPersonne);
     }
    }
 ?>
