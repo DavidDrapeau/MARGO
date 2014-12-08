@@ -2,7 +2,6 @@
 <!-- $this->message : à afficher sous le formulaire -->
 <?php 
 $unUtilisateur = $this->lire('personne');
-
 ?>
 <form method="post" action=".?controleur=AdminPersonnes&action=ValidationModifPersonne&idPersonne=<?php echo $unUtilisateur->getId() ?>" name=UpdatePerson>
     <h1>Informations personnelles</h1>
