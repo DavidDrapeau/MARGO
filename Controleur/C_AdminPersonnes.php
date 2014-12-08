@@ -129,7 +129,7 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
         
-        $perPage = 10;
+        $perPage = 20;
         $pageCourante=1;
         if(isset($_GET['page'])){
             $pageCourante=$_GET['page'];
