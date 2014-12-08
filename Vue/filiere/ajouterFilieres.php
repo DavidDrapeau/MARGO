@@ -8,15 +8,22 @@
     }
     ?>
 
-
-<div class="content-page">
+<div class="container">
     <h2>Ajouter d'une filière</h2>
     <hr>
-    <form action="?controleur=Filiere&action=valider" method="post">      
-        <label>Nom de la Filière </label><span></span><input type="text" name="nomFiliere" /><br>      
+    <form role="form" action="?controleur=Filiere&action=valider" method="post">    
+        <div class="form-group">
+        <label class="col-sm-2 control-label">Nom de la Filière </label>
+        <div class="col-sm-5">
+        <input class="form-control" type="text" name="nomFiliere" /><br>      
+        </div>
+        </div>
         
-        <input type="submit" value="Valider" />
-        
+        <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" value="Valider" class="btn btn-primary"/>
+        </div>
+        </div>
         
     </form>
     

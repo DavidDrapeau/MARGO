@@ -1,4 +1,8 @@
-<table>
+<div class="container">
+    <h2> Liste des Filières </h2>
+    <hr>
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Id</th>
@@ -33,3 +37,4 @@ foreach ($this->lire('filieres') as $filiere)
 
     </tbody>
 </table>
+</div>
