@@ -21,9 +21,9 @@ foreach ($this->lire('enseignements') as $enseignement)
                 </td>
                 
                 <td>
-                    <a href="">Afficher</a>
-                    <a href="">Editer</a>
-                    <a href="">Supprimer</a>
+                    <a href="?controleur=Enseignement&action=showByID&idEnseignement=<?php echo $enseignement->getIdEnseignement() ; ?>">Afficher</a>
+                    <a href="?controleur=Enseignement&action=updateById&idEnseignement=<?php echo $enseignement->getIdEnseignement() ; ?>">Editer</a>
+                    <a href="?controleur=Enseignement&action=deleteById&idEnseignement=<?php echo $enseignement->getIdEnseignement() ; ?>">Supprimer</a>
                 </td>
             </tr>
 
