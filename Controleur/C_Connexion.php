@@ -1,17 +1,19 @@
 <?php
 
 class C_Connexion {
+    
+    private $connexion=false;
 
     /**
      * controleur= connexion & action= seConnecter
      * Afficher le formulaire d'authentification au centre
      */
     function seConnecter() {
-        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titre', 'Se connecter');
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+        $this->vue->ajouter('entete', "../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche', "../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
@@ -24,18 +26,18 @@ class C_Connexion {
      *  - sinon, réafficher l'écran d'authentification
      */
     function authentifier() {
-        
-        
-        
-        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
-        $this->vue->ajouter('titreVue',"Margo : Accueil");
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+
+
+
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue', "Margo : Accueil");
+        $this->vue->ajouter('entete', "../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche', "../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-        
-        
-        $this->vue->ajouter('centre',"../Vue/connexion/authentification.php");
+
+
+        $this->vue->ajouter('centre', "../Vue/connexion/authentification.php");
 
 
         //------------------------------------------------------------------------
@@ -56,12 +58,12 @@ class C_Connexion {
 //                $this->vue->getDonnees['message'] = "Authentification r&eacute;ussie";
 //                $this->vue->getDonnees['centre'] = "../vues/connexion/centreAuthentifier.inc.php";
             } else {
-                $this->vue->ajouter('message',"ECHEC d'identification : login ou mot de passe inconnus ");
-                $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+                $this->vue->ajouter('message', "ECHEC d'identification : login ou mot de passe inconnus ");
+                $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
             }
         } else {
-            $this->vue->ajouter('message',"Attention : le login ou le mot de passe ne sont pas renseign&eacute;s");
-            $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+            $this->vue->ajouter('message', "Attention : le login ou le mot de passe ne sont pas renseign&eacute;s");
+            $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
         }
         //------------------------------------------------------------------------
 
@@ -80,24 +82,26 @@ class C_Connexion {
         MaSession::fermer();
         header("Location:  index.php");
     }
-    
-    
-    function monCompte(){
-        
-        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
-        $this->vue->ajouter('titreVue',"Margo : Mon comp");
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
+
+    function monCompte() {
+
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue', "Margo : Mon comp");
+        $this->vue->ajouter('entete', "../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche', "../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         $this->vue->ajouter('centre', "../Vue/connexion/monCompte.php");
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
-       
-       
-        
-        
+
+
+
+
         $this->vue->afficher();
-        
+    }
+    
+    function getConnexion(){
+         return $this->connexion;
     }
 
 }

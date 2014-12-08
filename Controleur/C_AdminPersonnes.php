@@ -7,6 +7,10 @@
  * @author btssio
  */
 class C_AdminPersonnes extends C_ControleurGenerique {
+    
+    
+    private $connexion=true;
+    
     // Fonction d'affichage du formulaire de création d'une personne
     function creerPersonne(){
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -218,6 +222,10 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         
         
         $this::afficherPersonne($idPersonne);
+    }
+    
+    function getConnexion(){
+         return $this->connexion;
     }
    }
 ?>
