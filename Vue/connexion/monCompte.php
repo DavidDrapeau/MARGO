@@ -4,4 +4,7 @@
 
 <h1>Mon compte</h1>
 
-Informations Personelles: 
+Informations Personelles:
+
+<p> Login: <?php echo MaSession::get('login') ?> </p>
+<p> Role: <?php echo MaSession::get('role') ?></p>
