@@ -1,18 +1,24 @@
-<div class="content-page">
+<div class="container ">
 
     <h2>Ajouter une classe</h2>
  
     <hr>
     <form action="?controleur=Classe&action=validation" method="post">
-        <label>Numero de la classe : </label><span class="pushNum"></span><input type="text" name="numClass" /><br>
-        <label>Nom de la classe </label><span  class="pushName"></span><input type="text" name="nameClasse" /><br>
-       
-        <label>Filière </label><span  class="pushFiliere"></span>
-        <select name="filiere">
+         <div class="form-group">
+            <label class="col-sm-2 control-label" >Numero de la classe : </label><span class="pushNum">
+            <input class="form-control" type="text" name="numClass" /><br>
+         </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label" >Nom de la classe </label>
+            <input class="form-control" type="text" name="nameClasse" /><br>
+         </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" >Filière </label><span  class="pushFiliere"></span>
+            <select name="filiere">
           
-        <option value=""></option>
+            <option value=""></option>
         
-          <?php
+             <?php
     
             // remplissage du "SELECT" qui contien les roles
           
@@ -21,11 +27,13 @@
               
                 echo'<option type="number"value="' . $filiere->getNumFiliere() . '">' . $filiere->getLibFiliere() . '</option>';
             }
-            ?>  
-         </select>
+             ?>  
+             </select>
+        </div>
         <br><br> 
-        <input type="submit" value="Valider" />
-        
+        <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Valider" />
+        </div>
         
     </form>
     
