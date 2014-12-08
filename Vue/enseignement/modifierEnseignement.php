@@ -1,26 +1,22 @@
-<?php
-    // message de validation de création ou non 
-    if (!is_null($this->lire('message'))) {
-        foreach ($this->lire('message') as $message){
-            echo "<strong style=\"color:red;\">" .  $message. "</strong></br>";
-        }
-        
-    }
-    
-    
-    ?>
-
-;
 <div class="content-page">
-    <h2>Modification d'une filière</h2>
+
+    <h2>Modifier enseignement</h2>
+ 
     <hr>
-    <form action="?controleur=Filiere&action=validerModification&idEnseignement=<?php echo $this->lire('enseignement')->getIdEnseignement(); ?>" method="post">    
-        <label>ID de l'enseignement </label><span></span><input type="text"  disabled="disabled" name="nomEnseignement" value="<?php echo $this->lire('enseignement')->getIdEnseignement() ;?>"/><br>      
-        <label>Nom de l'enseignement </label><span></span><input type="text" name="nomEnseignement"  value="<?php echo $this->lire('enseignement')->getLibEnseignement() ;?>"/><br>      
-        
-        <input type="submit" value="Valider" />
-        
+    
+    <form action="?controleur=Enseignement&action=update" method="post">
+        <?php   foreach ($this->lire('lenseignement') as $enseignement) { ?>
+        <label>Numero de la l'enseignement : </label><span class="pushNum"></span><input  type="text" name="idEnseignement" value="<?php echo $enseignement->getIdEnseignement() ;?> " disabled="disabled"/><br>
+        <label>Libellé de l'enseignement </label><span  class="pushName"></span><input  type="text" name="libEnseignement" value="<?php echo $enseignement->getLibEnseignement() ;?>"  /><br>
+        <input  type="hidden" name="idEnseignement" value="<?php echo $enseignement->getIdEnseignement() ;?> " />
+        <input type="submit" />
+        <br><br> 
+
+        <?php
+        }
+        ?>
         
     </form>
     
 </div>
+        
