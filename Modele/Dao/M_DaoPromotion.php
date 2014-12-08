@@ -37,7 +37,7 @@ class M_DaoPromotion extends M_DaoGenerique{
         $retour = FALSE;
         try {
             // Requête textuelle paramétrée 
-            $sql = "DELETE FROM $this->nomTable INNER JOIN PERSONNE ON PERSONNE.IDPERSONNE = PROMOTION.IDPERSONNE WHERE PROMOTION.IDPERSONNE = :id";
+            $sql = "DELETE FROM $this->nomTable WHERE IDPERSONNE = :id";
             // préparer la  liste des paramètres (1 seul)
             $parametres = array(':id'=>$idMetier);
             // préparer la requête PDO
