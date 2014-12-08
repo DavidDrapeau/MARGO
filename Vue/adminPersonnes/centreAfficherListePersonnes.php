@@ -1,11 +1,13 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> 
 
-<table>
+<table class="table table-hover" >
+    <thead
     <tr>
         <th>Id Personne </th>
         <th> Nom </th>
         <th> Action </th>
     </tr>
+    </thead>
     <?php
     $listePersonnes = $this->lire('lesPersonnes');
     //var_dump($listePersonnes);
