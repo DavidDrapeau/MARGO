@@ -8,6 +8,8 @@
  */
 class C_Enseignement 
 {
+    private $connexion=true;
+    
     
     function ajouter()
     { 
@@ -173,6 +175,10 @@ class C_Enseignement
            
         $this->afficher() ;
         
+    }
+    
+    function getConnexion(){
+         return $this->connexion;
     }
 }
 

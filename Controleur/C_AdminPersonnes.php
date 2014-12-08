@@ -7,6 +7,10 @@
  * @author btssio
  */
 class C_AdminPersonnes extends C_ControleurGenerique {
+    
+    
+    private $connexion=true;
+    
     // Fonction d'affichage du formulaire de création d'une personne
     function creerPersonne(){
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -152,8 +156,6 @@ class C_AdminPersonnes extends C_ControleurGenerique {
      * @param id de la personne
      */
     function modifierPersonne() {
-          
-        
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titreVue', 'Modification d\'une personne');
         
@@ -190,8 +192,6 @@ class C_AdminPersonnes extends C_ControleurGenerique {
      * @param id de la personne
      */
     function validationModifPersonne(){
-       
-        
         //les données
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
@@ -215,10 +215,24 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $personneModif = $daoPers->update($idPersonne,$pers);
         
         $daoPers->deconnecter();
-        
-        
+        //Fonction affichage d'une personne pour vérifier la modification
         $this::afficherPersonne($idPersonne);
     }
+    
+    function supprimerPersonne(){
+        $daoPers = new M_DaoPersonne();
+        $daoPers->connecter();
+        //Récupération de l'id de la personne
+        $idPersonne = $_GET['idPersonne'];
+        $daoPers->delete($idPersonne);
+        $daoPers->deconnecter();
+    }   
+    
+    
+    function getConnexion(){
+         return $this->connexion;
+    }
+    
    }
 ?>
 

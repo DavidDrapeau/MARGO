@@ -22,7 +22,7 @@
             <td><a href="?controleur=AdminPersonnes&action=afficherPersonne&idPersonne=<?php echo $unePersonne->getId() ?>">Détails</a></td>
             <!-- Boutons pour modifiers les informations ou supprimer la personne -->
             <td><a href="?controleur=AdminPersonnes&action=modifierPersonne&idPersonne=<?php echo $unePersonne->getId() ?>">Modifier </a></td> 
-            <td><a href="lien.html" >Supprimer</a></td> 
+            <td><a href="?controleur=AdminPersonnes&action=supprimerpersonne&idPersonne=<?php echo $unePersonne->getId() ?>">Supprimer</a></td> 
 
         </tr>
 
