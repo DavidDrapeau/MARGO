@@ -82,6 +82,95 @@ class C_Enseignement
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
     }
+
+        function showByID()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/enseignement/afficherDetailEnseignement.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
     
+        
+        $id = $_GET['idEnseignement'] ;
+        
+        $daoEnseignement = new M_DaoEnseignement();
+        $daoEnseignement->connecter();
+        $daoEnseignement->getPdo() ;
+        
+          $lenseignement = $daoEnseignement->getAllById($id);
+      
+        
+        $this->vue->ajouter('lenseignement', $lenseignement) ;
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher() ;
+        
+    }
+    
+    function deleteById()
+    {
+           
+        $daoEnseignement = new M_DaoEnseignement();
+        $daoEnseignement->connecter();
+        $daoEnseignement->getPdo() ;      
+        $id=$_GET['idEnseignement'] ;
+        $mess=  $daoEnseignement->delete($id) ;
+        $this->show() ;
+    }
+    
+    function updateById()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/includes/modifierEnseignement.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+    
+        
+        $id = $_GET['idEnseignement'] ;
+        
+        $daoEnseignement = new M_DaoEnseignement();
+        $daoEnseignement->connecter();
+        $daoEnseignement->getPdo() ;
+        
+        $lenseignement = $daoEnseignement->getAllById($id);
+         $this->vue->ajouter('lenseignement', $lenseignement) ;
+        
+        $this->vue->afficher() ;
+    }
+    
+    function update()
+    {
+      
+        
+        $daoEnseignement = new M_DaoEnseignement();
+        $daoEnseignement->connecter();
+        $daoEnseignement->getPdo() ;   
+        
+        $id=$_POST['idEnseignement'] ;
+        $libEnseignement=$_POST['libEnseignement'] ;
+
+        
+        $classe = new M_Classe($id, $libEnseignement) ;
+         
+       if($daoEnseignement->update($id,$libEnseignement))
+       {
+           $message = "/!\ L'enseignement à bien été mise à jour /!\ " ;
+           
+       } else {
+           $message = "Une erreur lors de la mise à jour" ;
+       }
+           
+        $this->show($message) ;
+        
+    }
 }
+
+
 
