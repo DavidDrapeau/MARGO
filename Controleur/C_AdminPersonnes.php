@@ -226,6 +226,11 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $idPersonne = $_GET['idPersonne'];
         $daoPers->delete($idPersonne);
         $daoPers->deconnecter();
+    }   
+    
+    
+    function getConnexion(){
+         return $this->connexion;
     }
     
    }
