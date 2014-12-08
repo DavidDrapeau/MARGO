@@ -13,7 +13,7 @@ class C_Connexion {
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
         $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-        
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
 
@@ -91,7 +91,7 @@ class C_Connexion {
         $this->vue->ajouter('centre',"../Vue/connexion/seconnecter.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         $this->vue->ajouter('centre', "../Vue/connexion/monCompte.php");
-      
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
        
        
         

@@ -27,7 +27,7 @@ class C_classe
             $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
             $this->vue->ajouter('centre',"../Vue/includes/centreAjoutClasse.php");
             $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-            
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));    
         $this->vue->afficher();
       
             
@@ -91,8 +91,11 @@ class C_classe
         
         $this->vue->ajouter('listeClasses', $classes) ;
         
-        
-        
+        if($message)
+        {
+            $this->vue->ajouter('message', $message) ;
+        }
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
     }
     
@@ -119,7 +122,7 @@ class C_classe
       
         
         $this->vue->ajouter('laClasse', $laClasse) ;
-        
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
         
     }
@@ -161,20 +164,32 @@ class C_classe
     
     function update()
     {
+      
         
         $daoClasse = new M_DaoClasse();
         $daoClasse->connecter();
-        $daoClasse->getPdo() ;     
-        var_dump($_POST) ;die() ;
+        $daoClasse->getPdo() ;   
+        
         $id=$_POST['numClass'] ;
-        $name=$_POST['nameClasse'] ;
-        $spe = $_POST[''] ;
-       if($daoClasse->update($id))
+        $nomClass=$_POST['nameClasse'] ;
+        if(!empty($_POST['speClasse']))
+        {
+            $idSpec = intval($_POST['speClasse']) ; 
+        } else
+        {
+            $idSpec = null ;
+        }
+       
+        $numFiliere = intval($_POST['numFiliere']) ;
+        
+        $classe = new M_Classe($id, $idSpec, $numFiliere, $nomClass) ;
+         
+       if($daoClasse->update($id,$classe))
        {
-           $message = "La classe à bien été mis à jours" ;
+           $message = "/!\ La classe à bien été mise à jour /!\ " ;
            
        } else {
-           $message = "Une erreur lors de la mise à jours" ;
+           $message = "Une erreur lors de la mise à jour" ;
        }
            
         $this->show($message) ;

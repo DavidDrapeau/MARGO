@@ -26,12 +26,12 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $daoRole->setPdo($pdo);
         $this->vue->ajouter('lesRoles', $daoRole->getAll());
         
-        $this->vue->ajouter('loginAuthentification',MaSession::get('login'));
+        
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
         $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreCreerPersonne.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-               
+        $this->vue->ajouter('loginAuthentification',MaSession::get('login'));       
         $this->vue->afficher();
     }
     

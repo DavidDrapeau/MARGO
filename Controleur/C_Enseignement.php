@@ -11,16 +11,20 @@ class C_Enseignement
     
     function ajouter()
     { 
-        $uneVue = new V_Vue("../Vue/templates/template_inc.php" );
-        $uneVue->vue = new V_Vue("../Vue/templates/template_inc.php");
-        $uneVue->vue->ajouter('titreVue','MARGO | Ajout enseigneùent') ;
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout enseigneùent') ;
    
-            $uneVue->ajouter('entete',"../Vue/vueEntete.inc.php");
-            $uneVue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-            $uneVue->ajouter('centre',"../Vue/includes/centreAjoutEnseignement.php");
-            $uneVue->ajouter('pied', "../Vue/vuePied.inc.php");
-            
-        $uneVue->afficher();
+        $filiere = new M_DaoEnseignement() ;
+        $filiere->connecter() ;
+        $filiere->getPdo() ;
+        
+            $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+            $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+            $this->vue->ajouter('centre',"../Vue/enseignement/ajoutEnseignement.php");
+            $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));    
+        $this->vue->afficher();
       
             
     }
@@ -46,5 +50,38 @@ class C_Enseignement
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
     }
+    
+    function validation()
+    {
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('titreVue','MARGO | Ajout enseignement') ;
+        
+          
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/includes/centreAjouter.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        $daoEnseignement = new M_DaoEnseignement();
+        $daoEnseignement->connecter();
+        $daoEnseignement->getPdo() ;
+
+        $idEnseignement = $_POST['idEnseignement'] ;
+        $libEnseignement = $_POST['libEnseignement'] ;
+                               
+        $enseignement = new M_Enseignement($idEnseignement, $libEnseignement) ;
+        
+        if($daoEnseignement->insert($enseignement)=='true')
+        {
+            $message='Enseignement ajouté' ;
+        } else
+        {
+            $message ="Une erreure s'est produite" ;
+        }
+        $this->vue->ajouter('message', $message) ;
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher() ;
+    }
+    
 }
 
