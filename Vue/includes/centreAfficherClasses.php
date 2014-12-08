@@ -3,14 +3,14 @@
     <h2> Liste des Classes </h2>
     <hr>
     <br />
-<table>
-  <tr>
-    <td>Numero de la classe</td>
-
-    <td>Libélé de la classe</td>
- 
-    <td>Action</td>
-  </tr>
+<table class="table table-hover">
+  <thead>
+        <tr>
+            <th>Id</th>
+            <th>Libellé</th>                       
+            <th>Actions</th>
+        </tr>
+    </thead>
   
   <?php foreach ($this->lire('listeClasses') as $classe)
   {
