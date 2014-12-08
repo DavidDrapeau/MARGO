@@ -128,9 +128,20 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         $this->vue->ajouter('titreVue', "Liste des personnes");
         $daoPers = new M_DaoPersonne();
         $daoPers->connecter();
-        $lesPersonnes= $daoPers->getAll();
+        
+        $perPage = 10;
+        $pageCourante=1;
+        if(isset($_GET['page'])){
+            $pageCourante=$_GET['page'];
+        }
+        
+        $lesPersonnes= $daoPers->getAllPagination($perPage,$pageCourante);
+        $pages= ($daoPers->count()/$perPage);             
         $daoPers->deconnecter();
+        
+        
         $this->vue->ajouter('lesPersonnes', $lesPersonnes);
+        $this->vue->ajouter('pages', $pages);
         $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherListePersonnes.php");
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher();
