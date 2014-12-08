@@ -79,7 +79,6 @@ $unUtilisateur = $this->lire('personne');
                 <?php
             // remplissage du "SELECT" qui contien les specialités
             foreach ($this->lire('lesSpecialites') as $specialite) {
-                var_dump($unUtilisateur->getSpecialite());
                 if($unUtilisateur->getSpecialite()!=null){
                      if($unUtilisateur->getSpecialite()->getId()==$specialite->getId()){
                         echo'<option selected="selected" value="' . $specialite->getId() . '">' . $specialite->getLibellecCourt() . '</option>';
