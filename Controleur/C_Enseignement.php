@@ -118,7 +118,7 @@ class C_Enseignement
         $daoEnseignement->getPdo() ;      
         $id=$_GET['idEnseignement'] ;
         $mess=  $daoEnseignement->delete($id) ;
-        $this->show() ;
+        $this->afficher() ;
     }
     
     function updateById()
@@ -128,7 +128,7 @@ class C_Enseignement
         $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;        
         $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/includes/modifierEnseignement.php");
+        $this->vue->ajouter('centre',"../Vue/enseignement/modifierEnseignement.php");
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
         
     
@@ -140,7 +140,8 @@ class C_Enseignement
         $daoEnseignement->getPdo() ;
         
         $lenseignement = $daoEnseignement->getAllById($id);
-         $this->vue->ajouter('lenseignement', $lenseignement) ;
+        $this->vue->ajouter('lenseignement', $lenseignement) ;
+
         
         $this->vue->afficher() ;
     }
@@ -153,13 +154,16 @@ class C_Enseignement
         $daoEnseignement->connecter();
         $daoEnseignement->getPdo() ;   
         
-        $id=$_POST['idEnseignement'] ;
-        $libEnseignement=$_POST['libEnseignement'] ;
-
         
-        $classe = new M_Classe($id, $libEnseignement) ;
+        $id=intval($_POST['idEnseignement']) ;
+        $libEnseignement=$_POST['libEnseignement'] ;
+        
+   
+        
+        $lenseignement = new M_Enseignement($id, $libEnseignement) ;
+       
          
-       if($daoEnseignement->update($id,$libEnseignement))
+       if($daoEnseignement->update($id,$lenseignement))
        {
            $message = "/!\ L'enseignement à bien été mise à jour /!\ " ;
            
@@ -167,7 +171,7 @@ class C_Enseignement
            $message = "Une erreur lors de la mise à jour" ;
        }
            
-        $this->show($message) ;
+        $this->afficher() ;
         
     }
 }

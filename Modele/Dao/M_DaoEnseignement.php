@@ -13,6 +13,7 @@ class M_DaoEnseignement extends M_DaoGenerique{
     }
 
     public function objetVersEnregistrement($objetMetier) {
+        
              $retour = array(
             ':idEnseignement' => $objetMetier->getIdEnseignement(),
             ':libEnseignement' => $objetMetier->getLibEnseignement(),
@@ -88,14 +89,16 @@ class M_DaoEnseignement extends M_DaoGenerique{
           try {
         $sql = "UPDATE $this->nomTable "
                 ."SET ID_ENSEIGNEMENT = :idEnseignement, "
-                ."LIB_ENSEIGNEMENT  = :libEnseignement, ";
+                ."LIB_ENSEIGNEMENT  = :libEnseignement "
+                . "WHERE ID_ENSEIGNEMENT =:idEnseignement";
         
  
-       
+
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres, avec l'identifiant en dernier
             $parametres = $this->objetVersEnregistrement($objetMetier);
+      
            
           
        
@@ -118,7 +121,7 @@ class M_DaoEnseignement extends M_DaoGenerique{
     {
           $retour = null;
         // Requête textuelle
-        $sql = "SELECT * FROM $this->nomTable E INNER JOIN FILIERE F ON P.NUMFILIERE=F.NUMFILIERE WHERE NUMCLASSE ='".$id."'";
+        $sql = "SELECT * FROM $this->nomTable WHERE ID_ENSEIGNEMENT ='".$id."'";
         try {
             // préparer la requête PDO
           
@@ -146,7 +149,7 @@ class M_DaoEnseignement extends M_DaoGenerique{
     {
           $retour = null;
         // Requête textuelle
-        $sql = "DELETE FROM $this->nomTable P WHERE condition NUMCLASSE ='".$id."' ";
+        $sql = "DELETE FROM $this->nomTable E WHERE condition ID_ENSEIGNEMENT ='".$id."' ";
         try {
             // préparer la requête PDO
           
