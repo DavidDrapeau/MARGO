@@ -29,9 +29,6 @@ $unUtilisateur = $this->lire('utilisateur');
         <input type="text" readonly="readonly" name="formation" id="formation" value="<?php if(!is_null($unUtilisateur->getFormation())){echo $unUtilisateur->getFormation();}; ?>"></input><br/>
             <label for="specialite">Sp&eacute;cialit&eacute; :</label>
         <input type="text" readonly="readonly" name="specialite" id="specialite" value="<?php if(!is_null($unUtilisateur->getSpecialite())){echo $unUtilisateur->getSpecialite()->getLibelleLong();}; ?>"></input><br/>
-            <!-- Boutons pour modifiers les informations ou supprimer la personne -->
-            <input type="button" name="Modif" value="Modifier" onclick="self.location.href='?controleur=AdminPersonnes&action=modifierPersonne&idPersonne=<?php echo $unUtilisateur->getId() ?>'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick> 
-            <input type="button" name="Sup" value="Supprimer" onclick="self.location.href='lien.html'" style="background-color:#3cb371" style="color:white; font-weight:bold"onclick> 
     </fieldset>
 </form>
    
@@ -40,5 +37,3 @@ if (!is_null($this->lire('message'))) {
     echo "<strong>".$this->lire('message')."</strong>";
 }
 ?>
-        
-    <td><a href=".?controleur=AdminPersonnes&action=listePersonnes">Retour à la liste des stages</a>
