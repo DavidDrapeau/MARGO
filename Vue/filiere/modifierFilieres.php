@@ -5,7 +5,7 @@
     if (!is_null($this->lire('message'))) {
         foreach ($this->lire('message') as $message){
            ?>
-    <div class="alert alert-alert" role="alert"><?php echo $message ; ?></div>
+    <div class="alert alert-danger" role="alert"><?php echo $message ; ?></div>
     <?php
         }
         
@@ -32,6 +32,7 @@
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Valider" />
+            <input type="button" class="btn btn-danger" value="Retour" onclick="history.go(-1)">
      
         </div>
  

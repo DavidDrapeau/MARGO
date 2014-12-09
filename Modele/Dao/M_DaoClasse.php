@@ -58,6 +58,38 @@ class M_DaoClasse extends M_DaoGenerique
         return $retour;
         
     }
+    public function verif($row) 
+    {
+        $message = null ;
+        $numClass = $row['numClasse'] ;
+        $nomClass = $row['nomClasse'] ;
+        
+ 
+        $retour = false ;
+        try {
+            $sql =" SELECT * FROM $this->nomTable WHERE NUMCLASSE = '".$numClass."'" ;
+            $queryPrepare = $this->pdo->prepare($sql);
+            $retour = $queryPrepare->execute() ;
+            $result = $queryPrepare->fetch(PDO::FETCH_ASSOC);
+            if($result != false)
+            {
+                $message ="Erreur, le numéro de classe existe déjà !<br>" ;
+            }
+            
+            $sql ="SELECT * FROM $this->nomTable WHERE NOMCLASSE = '".$nomClass."'" ;
+             $queryPrepare = $this->pdo->prepare($sql);
+            $retour = $queryPrepare->execute() ;
+            $result = $queryPrepare->fetch(PDO::FETCH_ASSOC);
+             if($result != false)
+            {
+                $message .="Erreur, le nom de classe existe déjà !" ;
+            }
+            
+        } catch (Exception $ex) {
+
+        }
+        return $message ;
+    }
 
  
     public function update($idMetier, $objetMetier) {
