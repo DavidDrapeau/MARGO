@@ -8,11 +8,21 @@ and open the template in the editor.
     Author     : btssio
 */
 
-span#pied
-{
-font-size:0.9em;
-text-align: right;
-position:absolute;
-bottom: 5px;
-right: 5px;
+
+#pied{
+    position: fixed;
+    bottom: 0px;
+    background-color:  #3c3c3c ;
+    width : 100%;
+    text-decoration: none ;
+    color : #fff ;
+}
+#pied a{
+    text-decoration : underline ;
+    color : #fff ;
+    
+}
+#pied a:hover{
+    background-color: #c12e2a ;
+    text-align: center ;
 }
