@@ -36,7 +36,7 @@
 
 <nav>
   <ul class="pagination">
-    <?php for ($i = 1; $i <= $this->lire('pages'); $i++): ?>
+    <?php for ($i = 1; $i <= $this->lire('pages')+1; $i++): ?>
         <li>
             <a href="?controleur=AdminPersonnes&action=listePersonnes&page=<?php echo $i; ?>" 
                <?php if ((isset($_GET['page'])) && ($i == $_GET['page'])) echo 'class="active"' ?> >
