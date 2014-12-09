@@ -21,7 +21,7 @@ class M_DaoFiliere extends M_DaoGenerique
             $sql .= "NUMFILIERE,LIBELLEFILIERE)";
             $sql .= "VALUES (";          
             $sql .= ":numFiliere,:libFiliere)";
-            var_dump($sql);
+          
             // préparer la requête PDO
             $queryPrepare = $this->pdo->prepare($sql);
             // préparer la  liste des paramètres, avec l'identifiant en dernier

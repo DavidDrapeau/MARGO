@@ -5,7 +5,7 @@
     if (!is_null($this->lire('message'))) {
         foreach ($this->lire('message') as $message){
            ?>
-    <div class="alert alert-success" role="alert"><?php echo $message ; ?></div>
+    <div class="alert alert-alert" role="alert"><?php echo $message ; ?></div>
     <?php
         }
         
