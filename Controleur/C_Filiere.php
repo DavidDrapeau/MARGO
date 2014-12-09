@@ -18,7 +18,7 @@ class C_Filiere {
         $this->vue->ajouter('titreVue', "Margo : Mon comp");
         $this->vue->ajouter('entete', "../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche', "../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre', "../Vue/connexion/seconnecter.php");
+     
         $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
 
 
@@ -61,15 +61,7 @@ class C_Filiere {
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titreVue', 'MARGO | Ajout Filières');
 
-        $filiere = new M_DaoFiliere();
-        $filiere->connecter();
-        $filiere->getPdo();
-
-
-        $filieres = $filiere->getAll();
-
-
-
+      
         $this->vue->ajouter('entete', "../Vue/vueEntete.inc.php");
         $this->vue->ajouter('gauche', "../Vue/vueGauche.inc.php");
         $this->vue->ajouter('centre', "../Vue/filiere/ajouterFilieres.php");
