@@ -6,11 +6,22 @@
     
     <form action="?controleur=Enseignement&action=update" method="post">
         <?php   foreach ($this->lire('lenseignement') as $enseignement) { ?>
-        <label>Numero de la l'enseignement : </label><span class="pushNum"></span><input  type="text" name="idEnseignement" value="<?php echo $enseignement->getIdEnseignement() ;?> " disabled="disabled"/><br>
-        <label>Libellé de l'enseignement </label><span  class="pushName"></span><input  type="text" name="libEnseignement" value="<?php echo $enseignement->getLibEnseignement() ;?>"  /><br>
+           <div class="form-group">
+        <label class="col-sm-3 control-label">Numero de la l'enseignement : </label>
+        <input class="form-control" type="text" name="idEnseignement" value="<?php echo $enseignement->getIdEnseignement() ;?> " disabled="disabled"/>
+           </div>
+         <div class="form-group">
+        <label class="col-sm-3 control-label">Libellé de l'enseignement </label>
+        <input class="form-control" type="text" name="libEnseignement" value="<?php echo $enseignement->getLibEnseignement() ;?>"  />
+         </div>
         <input  type="hidden" name="idEnseignement" value="<?php echo $enseignement->getIdEnseignement() ;?> " />
-        <input type="submit" />
-        <br><br> 
+       
+        <div class="form-group">
+            <div style="text-align:center ;">
+         <input type="submit" class="btn btn-primary" value="Valider" />
+            <input type="button" class="btn btn-danger" value="Retour" onclick="history.go(-1)">
+            </div>
+        </div>
 
         <?php
         }

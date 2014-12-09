@@ -23,7 +23,13 @@
             <label class="col-sm-2 control-label">Filière </label><input class="form-control" type="text" name="nameClasse" value="<?php echo $classe->getNumFiliere() ;?>" disabled="disabled" />
         </div>
     
-        
+          
+        <div class="form-group">
+            <div style="text-align:center ;">
+         
+            <input type="button" class="btn btn-danger" value="Retour" onclick="history.go(-1)">
+            </div>
+        </div>
 
         <?php
         }

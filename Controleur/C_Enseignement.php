@@ -11,7 +11,7 @@ class C_Enseignement
     private $connexion=true;
     
     
-    function ajouter()
+    function ajouter($message=null)
     { 
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -21,17 +21,22 @@ class C_Enseignement
         $filiere->connecter() ;
         $filiere->getPdo() ;
         
-            $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-            $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-            $this->vue->ajouter('centre',"../Vue/enseignement/ajoutEnseignement.php");
-            $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
-        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));    
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
+        $this->vue->ajouter('centre',"../Vue/enseignement/ajoutEnseignement.php");
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login')); 
+        if(isset($message))
+        {
+            $this->vue->ajouter('message', $message) ;
+        }
+        
         $this->vue->afficher();
       
             
     }
     
-    function afficher()
+    function afficher($message=null)
     {
                //Vue
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
@@ -50,6 +55,11 @@ class C_Enseignement
         $enseignements= $daoEnseignement->getAll();
         $this->vue->ajouter('enseignements', $enseignements);
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+          if(isset($message))
+        {
+            $this->vue->ajouter('message', $message) ;
+        }
+        
         $this->vue->afficher();
     }
     
@@ -59,11 +69,7 @@ class C_Enseignement
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titreVue','MARGO | Ajout enseignement') ;
         
-          
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/includes/centreAjouter.php");
-        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+         
         $daoEnseignement = new M_DaoEnseignement();
         $daoEnseignement->connecter();
         $daoEnseignement->getPdo() ;
@@ -82,7 +88,8 @@ class C_Enseignement
         }
         $this->vue->ajouter('message', $message) ;
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
-        $this->vue->afficher() ;
+        
+        $this->afficher($message) ;
     }
 
         function showByID()
@@ -173,7 +180,7 @@ class C_Enseignement
            $message = "Une erreur lors de la mise à jour" ;
        }
            
-        $this->afficher() ;
+        $this->afficher($message) ;
         
     }
     
