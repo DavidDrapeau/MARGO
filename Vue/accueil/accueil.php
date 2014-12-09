@@ -1,20 +1,19 @@
-<head>
-    <h1>Bienvenue sur le site de Margo</h1>
-</head>
+  <div class="jumbotron">
+      <div class="container">
+          <h1>Bienvenue sur  MARGO <img src="../Webroot/images/logo_1261714_web.png"></h1>
+        <p>Ce site est réservé au personnel administratif et aux enseignants<br><br>
+            Vous pouvez, ici, voir les enseignants, les formations proposées, les élèves et les classes de l'établissement</p> 
+      </div>
+    </div>
 
-<body>
-    <p>
-        Ce site est réservé au personnel administratif et aux enseignants
-    </p>
 
-    <p>
-        Vous pouvez, ici, voir les enseignants, les formations proposées, les élèves et les classes de l'établissement
-    </p>
+ 
     
     <h3>
         Présentation de Margo:
     </h3>
-    
+<hr>
+    <div class="presentation">
     <p>
         MARGO est un organisme français de formation professionnelle.
 
@@ -27,6 +26,4 @@
         les collectivités territoriales, les entreprises (grandes, PME-PMI ou artisans). 
         Les contrats de professionnalisation font aussi partie du dispositif.
     </p>
-
-</body>
-
+    </div>

@@ -11,6 +11,7 @@ and open the template in the editor.
 		<link rel="stylesheet" href="../Webroot/css/bootstrap.css" />
                 <link rel="stylesheet" href="../Webroot/css/bootstrap-theme.css" />
                 <link rel="stylesheet" href="../Webroot/css/PiedDePage.css" />
+                <link rel="stylesheet" href="../Webroot/css/style.css" />
 		<title>Margo | Espace enseignant</title>
 	
         <title><?php echo $this->lire('titre');?></title>
