@@ -1,3 +1,6 @@
+<script language="JavaScript" type="text/javascript" src="../Vue/javascript/fonctionsJavascript.inc.js"></script>
+<script language="JavaScript" type="text/javascript" src="../bibliotheques/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src=".../Vue/javascript/ajax.inc.js"></script>
 <?php 
 $unUtilisateur = $this->lire('personne');
 ?>
