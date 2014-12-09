@@ -7,7 +7,7 @@
 </div>
 
     <div class="presentation">
-        <h3>Informations Personelles:</h3>
+        <h3>Informations Personnelles:</h3>
         <hr>
         <p> Login: <?php echo MaSession::get('login') ?> </p>
         <p> Role: <?php echo MaSession::get('role') ?></p>
