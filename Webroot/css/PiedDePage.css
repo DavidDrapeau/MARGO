@@ -7,16 +7,24 @@ and open the template in the editor.
     Created on : 9 déc. 2014, 09:50:48
     Author     : btssio
 */
+#footer
+{
+clear: both;
+height: 100px;
+position: relative;
+margin-top: 10px;
+min-height: 800px;
+margin-bottom: -15px;
+width: 100%;
+background: none repeat scroll 0 0 #303030;
+box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.66) inset;
+color: #868686;
+padding-top: 30px;
+text-align : center ;
 
-
-#pied{
-    position: fixed;
-    bottom: 0px;
-    background-color:  #3c3c3c ;
-    width : 100%;
-    text-decoration: none ;
-    color : #fff ;
 }
+
+
 #pied a{
     text-decoration : underline ;
     color : #fff ;
