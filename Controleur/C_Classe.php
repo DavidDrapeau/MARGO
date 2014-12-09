@@ -42,15 +42,12 @@ class C_classe
     
     function validation()
     {
+        $role =true;
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titreVue','MARGO | Ajout matière') ;
         
-          
-        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
-        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");
-        $this->vue->ajouter('centre',"../Vue/includes/centreAjouter.php");
-        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+ 
         $daoClasse = new M_DaoClasse();
         $daoClasse->connecter();
         $daoClasse->getPdo() ;
@@ -58,23 +55,38 @@ class C_classe
         $numClass = $_POST['numClass'] ;
         $nameClasse = $_POST['nameClasse'] ;
         $filiere = intval($_POST['filiere']) ;
-        
+        $row = array(
+            'numClasse' => $numClass,
+            'nomClasse' => $nameClasse
+            ) ;
         $idSpec = null ;
                        
         $classe = new M_Classe($numClass, $idSpec, $filiere, $nameClasse) ;
-        
-        if($daoClasse->insert($classe)=='true')
+        $test=$daoClasse->verif($row) ;
+        if($test!=null) 
         {
-            $message='Classe bien ajouter' ;
+            $message = $test ;
+            $role = false;
+        }
+        else {
+            if($daoClasse->insert($classe)=='true')
+        {
+            $message='La classe à été bien ajoutée' ;
         } else
         {
             $message ="Une erreure s'est produite" ;
         }
+        }
+        
         $this->vue->ajouter('message', $message) ;
-        $this->vue->afficher() ;
+      
+        
+        $this->show($message) ;
+        
+      
     }
     
-    function show($message=null)
+    function show($message=null, $role=null)
     {
         $this->vue = new V_Vue("../Vue/templates/template_inc.php" );
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
@@ -96,6 +108,7 @@ class C_classe
         if($message)
         {
             $this->vue->ajouter('message', $message) ;
+            $this->vue->ajouter('role', $role) ;
         }
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
         $this->vue->afficher() ;
@@ -136,8 +149,14 @@ class C_classe
         $daoClasse->connecter();
         $daoClasse->getPdo() ;      
         $id=$_GET['idClasse'] ;
-        $mess=  $daoClasse->delete($id) ;
-        $this->show() ;
+        if($daoClasse->delete($id))
+        {
+            $message = "La classe à bien été supprimée " ;
+        } else 
+        {
+            $message ="Une erreure s'est produite" ;
+        }
+        $this->show($message) ;
     }
     
     function updateById()
