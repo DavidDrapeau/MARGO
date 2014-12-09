@@ -1,4 +1,22 @@
-<div class="alert-message"><p><?php echo $this->lire('message') ;?></p></div>
+<?php $mess=$this->lire('message') ;  
+$role=$this->lire('role') ;
+?>
+<?php if($mess!=null) 
+{
+    ?>
+    <?php if($role)
+    {
+    ?>
+  <div class="alert alert-success" style="text-align: center;"><p><?php echo $this->lire('message') ;?></p></div>
+  <?php
+}else {
+ ?> 
+  <div class="alert alert-danger" style="text-align: center;"><p><?php echo $this->lire('message') ;?></p></div>
+  <?php
+}
+?>
+<?php } ?>
+
 <div class="showClasse">
     <h2> Liste des Classes</h2>
     <hr>
@@ -29,4 +47,6 @@
   ?>
 </table>
 </div>
+
+<a href="?controleur=Classe&action=ajouter"><button type="button" class="btn btn-primary">Ajouter une classe</button></a>
 

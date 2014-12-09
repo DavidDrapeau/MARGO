@@ -1,3 +1,6 @@
+<script language="JavaScript" type="text/javascript" src="../Vue/javascript/fonctionsJavascript.inc.js"></script>
+<script language="JavaScript" type="text/javascript" src="../bibliotheques/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src=".../Vue/javascript/ajax.inc.js"></script>
 <?php 
 $unUtilisateur = $this->lire('personne');
 ?>
@@ -114,11 +117,11 @@ $unUtilisateur = $this->lire('personne');
          </div>
          <div class="form-group">
         <label class="col-sm-2 control-label" for="mdp">Mot de passe :</label>
-        <input class="form-control" type="password" name="mdp" id="mdp" value= <?php echo($unUtilisateur->getMdp())?>></input><br/>
+        <input class="form-control" type="password" name="mdp" id="mdp"></input><br/>
          </div>
          <div class="form-group">
         <label class="col-sm-2 control-label" for="mdp2">Retaper le mot de passe :</label>  <!-- vérification de mots de passe -->
-        <input class="form-control" type="password" name="mdp2" id="mdp2" value= <?php echo($unUtilisateur->getMdp())?>></input><br/>
+        <input class="form-control" type="password" name="mdp2" id="mdp2"></input><br/>
          </div>
     </fieldset>
   <div style="text-align: center ;">

@@ -2,7 +2,7 @@
       <div class="container">
         <div class="navbar-header">
         
-          <a class="navbar-brand" href="?">MARGO</a>
+            <a href="?"><img height="50px" src="../Webroot/images/logo_1261714_web.png" /></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

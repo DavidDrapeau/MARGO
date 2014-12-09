@@ -1,11 +1,17 @@
-<?php
+
+    
+    <?php
     // message de validation de création ou non 
     if (!is_null($this->lire('message'))) {
         foreach ($this->lire('message') as $message){
-            echo "<strong style=\"color:red;\">" .  $message. "</strong></br>";
+           ?>
+    <div class="alert alert-danger" role="alert"><?php echo $message ; ?></div>
+    <?php
         }
         
     }
+    
+   
     ?>
 
 <div class="container">

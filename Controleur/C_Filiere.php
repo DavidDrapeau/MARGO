@@ -10,7 +10,7 @@ class C_Filiere {
     
     private $connexion=true;
 
-    function afficher() {
+    function afficher($message=null) {
 
 
         //Vue
@@ -30,6 +30,7 @@ class C_Filiere {
         $filieres = $daoFiliere->getAll();
         $this->vue->ajouter('filieres', $filieres);
         $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->ajouter('message', $message) ;
         $this->vue->afficher();
     }
 
@@ -55,7 +56,7 @@ class C_Filiere {
         $this->vue->afficher();
     }
 
-    function ajouter($message = false) {
+    function ajouter($message = null) {
 
         $this->vue = new V_Vue("../Vue/templates/template_inc.php");
         $this->vue->ajouter('titreVue', 'MARGO | Ajout Filières');
@@ -92,7 +93,8 @@ class C_Filiere {
         $filiere = new M_Filiere(null, $nomFiliere);
 
         if ($validation && $daoFiliere->insert($filiere) == 'true') {
-            header('Location: ?controleur=Filiere&action=afficher');
+            $message = "La filière à bien été ajoutée !" ;
+            $this->afficher($message) ;
         } else {
             $message[] = "Une erreure s'est produite";
             $this::ajouter($message);
@@ -119,7 +121,8 @@ class C_Filiere {
         $filiere = new M_Filiere($_GET["idFiliere"], $nomFiliere);
 
         if ($validation && $daoFiliere->update($_GET["idFiliere"], $filiere) == 'true') {
-            header('Location: ?controleur=Filiere&action=afficher');
+            $message = "La filière à bien été modifiée !" ;
+            $this->afficher($message) ;
         } else {
             $message[] = "Une erreure s'est produite";
 
@@ -133,9 +136,15 @@ class C_Filiere {
         $daoFiliere->connecter();
         $daoFiliere->getPdo();
         $id = $_GET['idFiliere'];
-        $daoFiliere->delete($id);
-
-        header('Location: ?controleur=Filiere&action=afficher');
+        if($daoFiliere->delete($id))
+        {
+            $message = "La filière à bien été supprimée !" ;
+            
+        } else {
+            $message = "Une erreure s'est produite !" ;
+        }
+        
+       $this->afficher($message) ;
     }
     
     function getConnexion(){

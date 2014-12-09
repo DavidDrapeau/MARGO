@@ -1,10 +1,14 @@
 ﻿<!-- VARIABLES NECESSAIRES -->
 <!-- $this->message : à afficher sous le formulaire -->
-<h3>Bienvenue sur le site du centre de Formation Margo</h3>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Mon compte</h1>
+    </div>
+</div>
 
-<h1>Mon compte</h1>
-
-Informations Personelles:
-
-<p> Login: <?php echo MaSession::get('login') ?> </p>
-<p> Role: <?php echo MaSession::get('role') ?></p>
+    <div class="presentation">
+        <h3>Informations Personelles:</h3>
+        <hr>
+        <p> Login: <?php echo MaSession::get('login') ?> </p>
+        <p> Role: <?php echo MaSession::get('role') ?></p>
+    </div>

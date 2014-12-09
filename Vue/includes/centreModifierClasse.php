@@ -30,6 +30,7 @@
       
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Valider" />
+            <input type="button" class="btn btn-danger" value="Retour" onclick="history.go(-1)">
      
         </div>
      

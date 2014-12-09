@@ -158,7 +158,7 @@ class M_DaoEnseignement extends M_DaoGenerique{
             if ($queryPrepare->execute()) {
                 // si la requête réussit :
                 // initialiser le tableau d'objets à retourner
-                $retour = "La classe à bien été supprimée ! " ;
+                $retour = "L'enseignement à bien été supprimée ! " ;
                 }
                 else {
                     $retour = "Erreur lors de la suppression de la classe " ;

@@ -1,3 +1,12 @@
+<?php $mess=$this->lire('message') ;  ?>
+
+<?php if($mess!=null) 
+{
+    ?>
+
+<div class="alert alert-success" style="text-align: center;"><p><?php echo $this->lire('message') ;?></p></div>
+<?php } ?>
+
 <div class="container">
     <h2> Liste des Filières </h2>
     <hr>
