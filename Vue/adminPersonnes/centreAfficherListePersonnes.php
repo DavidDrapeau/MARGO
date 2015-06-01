@@ -1,7 +1,22 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" /> 
+<fieldset>           
+    <legend>Filtrage par rôle</legend>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="role">Rôle</label>
+        <select OnChange=""  name="role" id="role">
+            <option value=""></option>
+            <?php
+            // remplissage du "SELECT" qui contient les roles
+            foreach ($this->lire('lesRoles') as $role) {
+                echo'<option value="' . $role->getId() . '">' . $role->getLibelle() . '</option>'; 
+            }
+            ?>
+        </select>
+    </div>
+</fieldset>
 
 <table class="table table-hover" >
-    <thead
+    <thead>
     <tr>
         <th>Id Personne </th>
         <th> Nom </th>

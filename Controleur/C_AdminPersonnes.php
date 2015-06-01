@@ -131,7 +131,11 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         //Récupérations des données
         $this->vue->ajouter('titreVue', "Liste des personnes");
         $daoPers = new M_DaoPersonne();
+        //Récupération des rôles
+        $daoRole = new M_DaoRole();
         $daoPers->connecter();
+        $pdo = $daoPers->getPdo();
+        $daoRole->setPdo($pdo);
         
         $perPage = 20;
         $pageCourante=1;
@@ -140,10 +144,50 @@ class C_AdminPersonnes extends C_ControleurGenerique {
         }
         
         $lesPersonnes= $daoPers->getAllPagination($perPage,$pageCourante);
-        $pages= ($daoPers->count()/$perPage);             
+        $pages= ($daoPers->count()/$perPage); 
+        $daoPers->deconnecter();
+
+        //envoie des rôles vers la vue
+        $this->vue->ajouter('lesRoles', $daoRole->getAll());
+        
+        //envoie des personnes vers la vue
+        $this->vue->ajouter('lesPersonnes', $lesPersonnes);
+        $this->vue->ajouter('pages', $pages);
+        $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherListePersonnes.php");
+        $this->vue->ajouter('loginAuthentification', MaSession::get('login'));
+        $this->vue->afficher();
+    }
+    
+    /**
+     * Fonction qui permet d'afficher la liste des personnes
+     */
+    function listePersonnesFiltree(){
+        $this->vue = new V_Vue("../Vue/templates/template_inc.php");
+        $this->vue->ajouter('entete',"../Vue/vueEntete.inc.php");
+        $this->vue->ajouter('gauche',"../Vue/vueGauche.inc.php");  
+        $this->vue->ajouter('pied', "../Vue/vuePied.inc.php");
+        
+        //Récupérations des données
+        $this->vue->ajouter('titreVue', "Liste des personnes");
+        $daoPers = new M_DaoPersonne();
+        //Récupération des rôles
+        $daoRole = new M_DaoRole();
+        $daoPers->connecter();
+        $pdo = $daoPers->getPdo();
+        $daoRole->setPdo($pdo);
+        
+        $perPage = 20;
+        $pageCourante=1;
+        if(isset($_GET['page'])){
+            $pageCourante=$_GET['page'];
+        }
+        
+        $role = $_GET['rolePersonne'];
+        $lesPersonnes= $daoPers->getAllByRole($role,$perPage,$pageCourante);
+        $pages= ($daoPers->count()/$perPage); 
         $daoPers->deconnecter();
         
-        
+        //envoie des personnes vers la vue
         $this->vue->ajouter('lesPersonnes', $lesPersonnes);
         $this->vue->ajouter('pages', $pages);
         $this->vue->ajouter('centre', "../Vue/adminPersonnes/centreAfficherListePersonnes.php");
