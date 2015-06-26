@@ -3,7 +3,7 @@
     <legend>Filtrage par rôle</legend>
     <div class="form-group">
         <label class="col-sm-2 control-label" for="role">Rôle</label>
-        <select OnChange=""  name="role" id="role">
+        <select OnChange="javascript:PersonnesByRole();"  name="role" id="role">
             <option value=""></option>
             <?php
             // remplissage du "SELECT" qui contient les roles

@@ -2,6 +2,37 @@ function gotoUrl($url) {
     window.location = $url;
 }
 
+function getXhr() {
+    var xhr = null;
+    try {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (e) {
+        try {
+            xhr = new XMLHttpRequest();
+        } catch (e) {
+            alert("Objets XMLHTTPRequest non supportés");
+            xhr = false;
+        }
+    }
+    return xhr;
+}
+//fonction d'affichage des personnes en fonction du rôle
+function PersonnesByRole(){
+    var xhr = getXhr();
+    // On définit ce qu'on va faire quand on aura la réponse
+    xhr.onreadystatechange =
+            function() {
+    // code ou appel d'une autre fonction
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('maDiv').innerHTML = xhr.responseText;
+                }
+            }
+    xhr.open("GET", "C_AdminPersonnes.php", true);
+    xhr.send(null);
+
+}
+
+
 //fonction de choix de roles
 function choixRole() {
 //    $monDiv1 = document.getElementById('Formulaire_MaitreStage');
